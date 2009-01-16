@@ -1,0 +1,9 @@
+%ul
+  - if logged_in?
+    %li= link_to 'Logout', logout_url 
+    %li= link_to 'Home', home_url
+    - if current_user.is_an_admin?
+      %li= link_to 'Admin', admin_url
+  - else
+    %li= link_to 'Sign up', register_url, :rel=>"facebox[.bolder]"
+    %li= link_to 'Log in', login_url, :rel=>"facebox[.bolder]"

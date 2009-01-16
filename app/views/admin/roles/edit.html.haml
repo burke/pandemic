@@ -1,0 +1,9 @@
+= render :partial => '/admin/menu' 
+%h1 Editing roles
+-debugger
+- form_for([:admin,@role]) do |form|
+  = render :partial => 'form', :locals => {:form => form}
+  %p= form.submit 'Update', :disable_with => 'Please wait...' 
+%p
+  = link_to 'Show', [:admin,@role]
+  = link_to 'Back', admin_roles_path

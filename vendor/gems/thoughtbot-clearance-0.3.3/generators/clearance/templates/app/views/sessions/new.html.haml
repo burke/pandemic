@@ -1,0 +1,19 @@
+- form_for :session, :url => session_path do |form| 
+  .text_field
+    = form.label :email
+    = form.text_field :email
+  .text_field
+    = form.label :password
+    = form.password_field :password
+  .text_field
+    = form.check_box :remember_me 
+    = form.label :remember_me 
+  .submit_field
+    = form.submit 'Login', :disable_with => 'Please wait...' 
+
+
+%ul
+  %li
+    = link_to "Sign up", new_user_path 
+  %li
+    = link_to "Forgot My Password", new_password_path 

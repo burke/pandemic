@@ -1,0 +1,7 @@
+label {font-weight:bold;display:block;}
+
+#login li{
+	list-style:none;
+	float:right;
+	margin-right:1em;
+}

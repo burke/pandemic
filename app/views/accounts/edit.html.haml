@@ -1,0 +1,9 @@
+%h1 Editing Account
+
+- form_for(@account) do |form|
+  = render :partial => 'form', :locals => {:form => form}
+  %p= form.submit 'Update'
+
+%p
+  = link_to 'Show', @account
+  = link_to 'Back', accounts_path

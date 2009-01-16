@@ -1,0 +1,18 @@
+%h1 Listing Accounts
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Balance
+
+  - for account in @accounts
+    %tr
+      %td= h account.name
+      %td= h account.description
+      %td= h account.balance
+      %td= link_to 'Show', account
+      %td= link_to 'Edit', edit_account_path(account)
+      %td= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to 'New Account', new_account_path

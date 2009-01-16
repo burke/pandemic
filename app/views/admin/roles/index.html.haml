@@ -1,0 +1,9 @@
+= render :partial => '/admin/menu' 
+%h1 Listing Roles
+
+%table
+  %tr
+    %th Name
+    %th Description
+  = render :partial => @roles
+%p= link_to 'New Role', new_admin_role_path

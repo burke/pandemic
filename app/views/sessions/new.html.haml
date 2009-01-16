@@ -1,0 +1,14 @@
+- form_for :session, :url => session_path do |form| 
+  .text_field
+    = form.label :email
+    = form.text_field :email, :class => "text"
+  .text_field
+    = form.label :password
+    = form.password_field :password, :class => "text"
+  .text_field
+    = form.label :remember_me 
+    = form.check_box :remember_me 
+  .submit_field
+    = form.submit 'Login', :disable_with => 'Please wait...' 
+
+=link_to "Forgot My Password", new_account_password_url
