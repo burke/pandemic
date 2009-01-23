@@ -11,14 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20090116042821) do
 
-  create_table "accounts", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "balance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.text     "description"
