@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
   
   def login_successful
     flash[:success] = 'Logged in successfully'
-    redirect_back_or account_url  
+    redirect_back_or home_url  
   end
 
   def login_failure(message = "Bad email or password.")
