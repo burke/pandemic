@@ -24,8 +24,6 @@ Rails::Initializer.run do |config|
                                           :version => "0.1.2"
             
   config.gem 'fiveruns_tuneup'
-  #  config.gem '53cr-generator', :lib => false, :source => "http://gems.github.com"
-
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
