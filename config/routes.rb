@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :accounts
 
+  %W{ index }.each do |page|
+    map.connect page, :controller => 'static', :action => page
+  end
   
   map.root     :controller => "static", :action => "index"
   
@@ -25,6 +27,4 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.confirmation '/confirm/:user_id/:salt', :controller => 'users', :action => 'confirm'
-  map.connect  ':action',   :controller => 'static'
-
 end

@@ -8,8 +8,6 @@ class UsersController < ApplicationController
     render :layout => lambda{ |c| c.request.xhr? ? '/layouts/ajax' : 'application' }
   end
   
-  before_filter :existing_user?
-      
   def confirm
     @user = User.find_by_id_and_salt(params[:user_id], params[:salt])
     if @user
@@ -27,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.deliver_confirmation @user
       flash[:success] = "You will receive an email within the next few minutes. It contains instructions for you to confirm your account."
-      redirect_to login_path
+      redirect_to login_url
     else
       render :action => "new"
     end
@@ -36,7 +34,7 @@ class UsersController < ApplicationController
  private
     
   def existing_user?
-    
+      
   end
   
 end

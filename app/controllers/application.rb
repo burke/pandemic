@@ -14,9 +14,8 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?
-    current_user.present?
+    current_user
   end
- 
   
   def authenticate(opts = {})
     deny_access(opts) unless self.current_user
@@ -39,7 +38,10 @@ class ApplicationController < ActionController::Base
   def create_session_for(user)
     session[:user_id] = user.id if user
   end
-  
+ 
+  def redirect_to_root
+    redirect_to root_url
+  end  
   def redirect_back_or(default)
     session[:return_to] ? redirect_to(session[:return_to]) : redirect_to(default)
     session[:return_to] = nil
