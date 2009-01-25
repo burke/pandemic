@@ -19,8 +19,7 @@ Rails::Initializer.run do |config|
                                         :source => "http://gems.github.com"
 
   config.gem 'stefanpenner-my_generator', :lib     => false,
-                                          :source  => "http://gems.github.com",
-                                          :version => "0.1.2"
+                                          :source  => "http://gems.github.com"
             
   config.gem 'fiveruns_tuneup'
   # Settings in config/environments/* take precedence over those specified here.
