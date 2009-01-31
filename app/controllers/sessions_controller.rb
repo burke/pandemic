@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   private
   
   def login_via_password(email, password, remember_me)
-    user = user_model.authenticate(email, password)
+    user = User.authenticate(email, password)
     if user && user.confirmed? && login(user)
       create_session_for(user)
       remember(user) if remember_me == '1'
@@ -53,5 +53,4 @@ class SessionsController < ApplicationController
     user.forget_me! if user
     cookies.delete :auth_token
   end
- 
 end

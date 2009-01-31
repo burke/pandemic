@@ -5,3 +5,25 @@ label {font-weight:bold;display:block;}
 	float:right;
 	margin-right:1em;
 }
+.fieldWithErrors input,.fieldWithErrors textarea{
+	background-color:#FBE3E4;
+	border: 2px solid #FBC2C4;
+}
+.fieldWithErrors {
+}
+
+.error_message {
+  color:#FBC2C4;
+  font-weight:bold;
+  margin-left:1em;
+}
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

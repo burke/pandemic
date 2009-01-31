@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   filter_parameter_logging :password
   
   def new
-    @user = user_model.new(params[:user])
+    @user = User.new(params[:user])
     render :layout => lambda{ |c| c.request.xhr? ? '/layouts/ajax' : 'application' }
   end
   
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end  
   
   def create
-    @user = user_model.new params[:user]
+    @user = User.new params[:user]
     if @user.save
       UserMailer.deliver_confirmation @user
       flash[:success] = "You will receive an email within the next few minutes. It contains instructions for you to confirm your account."
@@ -36,5 +36,4 @@ class UsersController < ApplicationController
   def existing_user?
       
   end
-  
 end

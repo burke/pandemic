@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20090116042821) do
     t.string   "salt",                      :limit => 40
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
-    t.boolean  "confirmed",                               :default => false, :null => false
+    t.boolean  "confirmed",                               :default => false
   end
 
   add_index "users", ["email", "crypted_password"], :name => "index_users_on_email_and_crypted_password"

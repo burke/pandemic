@@ -22,11 +22,11 @@ class ApplicationController < ActionController::Base
   end
   
   def user_from_session
-    user_model.find_by_id session[:user_id]
+    User.find_by_id session[:user_id]
   end
   
   def user_from_cookie
-    user = user_model.find_by_remember_token(cookies[:auth_token]) if cookies[:auth_token]
+    user = User.find_by_remember_token(cookies[:auth_token]) if cookies[:auth_token]
     user && user.remember_token? ? user : nil
   end
   
@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   def store_location
     session[:return_to] = request.request_uri
   end
-  
+ 
   def deny_access(opts = {})
     opts[:redirect] ||= login_url
     opts[:flash_message] ||= "Access Denied"
@@ -59,7 +59,4 @@ class ApplicationController < ActionController::Base
     redirect_to opts[:redirect]
   end
   
-  def user_model
-    User
-  end
 end

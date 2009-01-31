@@ -2,7 +2,7 @@
 %html{ :lang => "en" }
   %head
     %meta{ :content => "text/html charset=utf-8", "http-equiv" => "Content-Type" }
-    %title= APP_NAME
+    %title= APP[:name]
     = stylesheet_link_tag 'blueprint/screen', :media => 'screen'
     = stylesheet_link_tag 'blueprint/print',  :media => 'print'
     = "<!--[if IE]>#{stylesheet_link_tag 'blueprint/ie', :media => 'screen'}<![endif]-->" 

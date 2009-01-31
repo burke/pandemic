@@ -39,7 +39,7 @@ class SessionsControllerTest < ActionController::TestCase
       setup { @user = Factory(:user, :confirmed => true) }
             
       context "that is logging in" do
-        setup { login_user(@user) }
+        setup { login_user }
 
         should_set_the_flash_to "Logged in successfully" 
       end
@@ -49,7 +49,7 @@ class SessionsControllerTest < ActionController::TestCase
       setup { @user = Factory( :user, :confirmed => false) }
 
       context "with good credentials" do
-        setup { login_user(@user) }
+        setup { login_user }
 
         should_set_the_flash_to "Bad email or password." 
       end

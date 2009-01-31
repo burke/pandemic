@@ -27,15 +27,9 @@ class User < ActiveRecord::Base
   def is_one_of?(*args)
     args.any?{ |num| roles.include?(num)}
   end
-  
-  def method_missing(method_id, *args)
-    #debugger
-    if match = method_id.to_s.match(/^is_an?_(\w+)\?$/)
-      roles_in_question = match.captures.split('_or_')
-      !roles.find_by_name(*roles_in_question).blank?
-    else
-      super
-    end
+
+  def is_an?(*roles_in_question)
+    !roles.find_by_name(roles_in_question.map(&:to_s)).blank?  
   end
 
 end

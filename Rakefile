@@ -6,7 +6,7 @@ require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
-require 'rcov/rcovtask' 
+#require 'rcov/rcovtask' 
  
 namespace :test do 
   namespace :coverage do 
@@ -14,6 +14,7 @@ namespace :test do
     task(:clean) { rm_f "coverage.data" } 
   end 
 
+=begin
   desc 'Aggregate code coverage for unit, functional and integration tests' 
   task :coverage => "test:coverage:clean" 
   %w[unit functional integration].each do |target| 
@@ -27,8 +28,7 @@ namespace :test do
       end 
     end 
     task :coverage => "test:coverage:#{target}" 
-  end 
-end 
-
-
+  end  
+=end
+end
 require 'tasks/rails'

@@ -18,9 +18,12 @@ ActionController::Routing::Routes.draw do |map|
     home.resource :password do |password|
       password.connect '/reset', :controller => 'passwords',:action => 'reset'
     end
+
+    home.resource :personal, :only => [:show, :edit, :update]
   end
   
   map.admin '/admin', :controller => 'admin'
+
   map.namespace(:admin) do |admin|
     admin.resources :users
     admin.resources :roles

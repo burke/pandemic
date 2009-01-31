@@ -11,7 +11,7 @@ RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'mocha'
+  config.gem 'mocha', :version => '0.9.4'
   config.gem 'thoughtbot-shoulda', :lib => 'shoulda',
                                    :source => "http://gems.github.com" 
 
@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'stefanpenner-my_generator', :lib     => false,
                                           :source  => "http://gems.github.com"
             
-  config.gem 'fiveruns_tuneup'
+#  config.gem 'fiveruns_tuneup'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

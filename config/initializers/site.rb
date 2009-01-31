@@ -1,2 +1,3 @@
-APP_NAME = "53cr - Base Application"
-HOST_NAME = "base.local"
+APP = {}
+APP[:name] = "Base App"
+APP[:host] = "localhost:3000"
