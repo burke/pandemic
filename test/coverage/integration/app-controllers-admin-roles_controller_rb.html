@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:31 -0600 2009 with 
+      Generated on Sun Feb 01 20:20:56 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -175,16 +175,16 @@
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='app-controllers-admin-roles_controller_rb.html'>
     app/controllers/admin/roles_controller.rb </a> </td> <td
-    class='lines_total'> <tt> 49 </tt> </td> <td class='lines_code'> <tt> 37
+    class='lines_total'> <tt> 49 </tt> </td> <td class='lines_code'> <tt> 38
     </tt> </td> <td> <table cellspacing='0' align='right' cellpadding='0'> <tr>
     <td> <tt class='coverage_total'> 28.6% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' cellpadding='0' width='100'> <tr> <td
     class='covered' width='29' /> <td class='uncovered' width='71' /> </tr>
     </table> </td> </tr> </table> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 21.6%
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 21.1%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
-    cellpadding='0' width='100'> <tr> <td class='covered' width='22' /> <td
-    class='uncovered' width='78' /> </tr> </table> </td> </tr> </table> </td>
+    cellpadding='0' width='100'> <tr> <td class='covered' width='21' /> <td
+    class='uncovered' width='79' /> </tr> </table> </td> </tr> </table> </td>
     </tr> </tbody> </table><pre><span class="marked1"><a name="line1"></a> 1
     class Admin::RolesController &lt; AdminController </span><span
     class="marked0"><a name="line2"></a> 2 def index </span><span
@@ -209,7 +209,7 @@
     Role.new(params[:role]) </span><span class="uncovered0"><a
     name="line22"></a>22 </span><span class="uncovered1"><a name="line23"></a>23
     if @role.save </span><span class="uncovered0"><a name="line24"></a>24
-    flash[:success] = 'Roles was successfully created.' </span><span
+    flash[:success] = 'Role was successfully created.' </span><span
     class="uncovered1"><a name="line25"></a>25 redirect_to [:admin,@role]
     </span><span class="uncovered0"><a name="line26"></a>26 else </span><span
     class="uncovered1"><a name="line27"></a>27 render :action =&gt;
@@ -231,10 +231,11 @@
     name="line43"></a>43 def destroy </span><span class="uncovered0"><a
     name="line44"></a>44 @role = Role.find(params[:id]) </span><span
     class="uncovered1"><a name="line45"></a>45 @role.destroy </span><span
-    class="uncovered0"><a name="line46"></a>46 </span><span
-    class="uncovered1"><a name="line47"></a>47 redirect_to(admin_roles_url)
-    </span><span class="uncovered0"><a name="line48"></a>48 end </span><span
-    class="uncovered1"><a name="line49"></a>49 end </span></pre>
+    class="uncovered0"><a name="line46"></a>46 flash[:success] = &quot;Role has
+    been removed&quot; </span><span class="uncovered1"><a name="line47"></a>47
+    redirect_to(admin_roles_url) </span><span class="uncovered0"><a
+    name="line48"></a>48 end </span><span class="uncovered1"><a
+    name="line49"></a>49 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

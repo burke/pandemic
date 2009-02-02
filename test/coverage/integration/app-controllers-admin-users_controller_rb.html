@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:31 -0600 2009 with 
+      Generated on Sun Feb 01 20:20:56 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -175,13 +175,13 @@
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='app-controllers-admin-users_controller_rb.html'>
     app/controllers/admin/users_controller.rb </a> </td> <td
-    class='lines_total'> <tt> 55 </tt> </td> <td class='lines_code'> <tt> 42
+    class='lines_total'> <tt> 55 </tt> </td> <td class='lines_code'> <tt> 43
     </tt> </td> <td> <table cellspacing='0' align='right' cellpadding='0'> <tr>
     <td> <tt class='coverage_total'> 25.5% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' cellpadding='0' width='100'> <tr> <td
     class='covered' width='25' /> <td class='uncovered' width='75' /> </tr>
     </table> </td> </tr> </table> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 19.0%
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 18.6%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
     cellpadding='0' width='100'> <tr> <td class='covered' width='19' /> <td
     class='uncovered' width='81' /> </tr> </table> </td> </tr> </table> </td>
@@ -209,9 +209,9 @@
     User.new(params[:user]) </span><span class="uncovered1"><a
     name="line22"></a>22 @roles = Role.all </span><span class="uncovered0"><a
     name="line23"></a>23 if @user.save </span><span class="uncovered1"><a
-    name="line24"></a>24 flash[:success] = 'Users was successfully created.'
+    name="line24"></a>24 flash[:success] = 'User was successfully created.'
     </span><span class="uncovered0"><a name="line25"></a>25
-    redirect_to([:admin,@users]) </span><span class="uncovered1"><a
+    redirect_to([:admin,@user]) </span><span class="uncovered1"><a
     name="line26"></a>26 else </span><span class="uncovered0"><a
     name="line27"></a>27 render :action =&gt; &quot;new&quot; </span><span
     class="uncovered1"><a name="line28"></a>28 end </span><span
@@ -231,7 +231,7 @@
     name="line40"></a>40 params[:user][:role_ids] ||= [] </span><span
     class="uncovered0"><a name="line41"></a>41 if
     @user.update_attributes(params[:user]) </span><span class="uncovered1"><a
-    name="line42"></a>42 flash[:success] = 'Users was successfully updated.'
+    name="line42"></a>42 flash[:success] = 'User was successfully updated.'
     </span><span class="uncovered0"><a name="line43"></a>43
     redirect_to([:admin,@user]) </span><span class="uncovered1"><a
     name="line44"></a>44 else </span><span class="uncovered0"><a
@@ -242,9 +242,10 @@
     name="line49"></a>49 def destroy </span><span class="uncovered1"><a
     name="line50"></a>50 @user = User.find(params[:id]) </span><span
     class="uncovered0"><a name="line51"></a>51 @user.destroy </span><span
-    class="uncovered1"><a name="line52"></a>52 </span><span
-    class="uncovered0"><a name="line53"></a>53 redirect_to(admin_users_url)
-    </span><span class="uncovered1"><a name="line54"></a>54 end </span><span
+    class="uncovered1"><a name="line52"></a>52 flash[:success] = &quot;User
+    #{@user.email} was removed&quot; </span><span class="uncovered0"><a
+    name="line53"></a>53 redirect_to(admin_users_url) </span><span
+    class="uncovered1"><a name="line54"></a>54 end </span><span
     class="uncovered0"><a name="line55"></a>55 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov

@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:28 -0600 2009 with 
+      Generated on Sun Feb 01 22:20:29 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -174,32 +174,33 @@
     <td class='heading'> Total coverage </td> <td class='heading'> Code coverage
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='app-models-user_rb.html'> app/models/user.rb </a> </td> <td
-    class='lines_total'> <tt> 40 </tt> </td> <td class='lines_code'> <tt> 27
+    class='lines_total'> <tt> 83 </tt> </td> <td class='lines_code'> <tt> 60
     </tt> </td> <td> <table cellspacing='0' align='right' cellpadding='0'> <tr>
-    <td> <tt class='coverage_total'> 85.0% </tt> &nbsp; </td> <td> <table
+    <td> <tt class='coverage_total'> 92.8% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' cellpadding='0' width='100'> <tr> <td
-    class='covered' width='85' /> <td class='uncovered' width='15' /> </tr>
+    class='covered' width='93' /> <td class='uncovered' width='7' /> </tr>
     </table> </td> </tr> </table> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 77.8%
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 90.0%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
-    cellpadding='0' width='100'> <tr> <td class='covered' width='78' /> <td
-    class='uncovered' width='22' /> </tr> </table> </td> </tr> </table> </td>
+    cellpadding='0' width='100'> <tr> <td class='covered' width='90' /> <td
+    class='uncovered' width='10' /> </tr> </table> </td> </tr> </table> </td>
     </tr> </tbody> </table><pre><span class="marked1"><a name="line1"></a> 1
     class User &lt; ActiveRecord::Base </span><span class="marked0"><a
-    name="line2"></a> 2 concerned_with :auth </span><span class="marked1"><a
-    name="line3"></a> 3 attr_accessible :email, :password,
-    :password_confirmation, :role_ids </span><span class="inferred0"><a
-    name="line4"></a> 4 </span><span class="marked1"><a name="line5"></a> 5
+    name="line2"></a> 2 attr_accessible :email, :password,
+    :password_confirmation, :role_ids </span><span class="inferred1"><a
+    name="line3"></a> 3 </span><span class="marked0"><a name="line4"></a> 4
     named_scope :confirmed, :conditions =&gt; { :confirmed =&gt; true }
-    </span><span class="inferred0"><a name="line6"></a> 6 </span><span
-    class="marked1"><a name="line7"></a> 7 attr_accessor :password,
-    :password_confirmation </span><span class="inferred0"><a name="line8"></a> 8
-    </span><span class="marked1"><a name="line9"></a> 9 validates_presence_of
-    :email </span><span class="marked0"><a name="line10"></a>10
+    </span><span class="inferred1"><a name="line5"></a> 5 </span><span
+    class="marked0"><a name="line6"></a> 6 attr_accessor :password,
+    :password_confirmation </span><span class="inferred1"><a name="line7"></a> 7
+    </span><span class="marked0"><a name="line8"></a> 8 validates_presence_of
+    :email </span><span class="marked1"><a name="line9"></a> 9
     validates_presence_of :password, :if =&gt; :password_required? </span><span
-    class="marked1"><a name="line11"></a>11 validates_confirmation_of :password,
-    :if =&gt; :password_required? </span><span class="marked0"><a
-    name="line12"></a>12 validates_uniqueness_of :email </span><span
+    class="marked0"><a name="line10"></a>10 validates_confirmation_of :password,
+    :if =&gt; :password_required? </span><span class="marked1"><a
+    name="line11"></a>11 validates_uniqueness_of :email </span><span
+    class="marked0"><a name="line12"></a>12 validates_format_of :email, :with
+    =&gt; /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i </span><span
     class="inferred1"><a name="line13"></a>13 </span><span class="marked0"><a
     name="line14"></a>14 before_save :initialize_salt, :encrypt_password
     </span><span class="inferred1"><a name="line15"></a>15 </span><span
@@ -217,19 +218,66 @@
     </span><span class="uncovered1"><a name="line27"></a>27 args.any?{ |num|
     roles.include?(num)} </span><span class="uncovered0"><a name="line28"></a>28
     end </span><span class="inferred1"><a name="line29"></a>29 </span><span
-    class="marked0"><a name="line30"></a>30 def method_missing(method_id, *args)
-    </span><span class="inferred1"><a name="line31"></a>31 #debugger
-    </span><span class="marked0"><a name="line32"></a>32 if match =
-    method_id.to_s.match(/^is_an?_(\w+)\?$/) </span><span class="uncovered1"><a
-    name="line33"></a>33 roles_in_question = match.captures.split('_or_')
-    </span><span class="uncovered0"><a name="line34"></a>34
-    !roles.find_by_name(*roles_in_question).blank? </span><span
-    class="inferred1"><a name="line35"></a>35 else </span><span
-    class="marked0"><a name="line36"></a>36 super </span><span
-    class="inferred1"><a name="line37"></a>37 end </span><span
-    class="inferred0"><a name="line38"></a>38 end </span><span
-    class="inferred1"><a name="line39"></a>39 </span><span class="inferred0"><a
-    name="line40"></a>40 end </span></pre>
+    class="marked0"><a name="line30"></a>30 def is_an?(*roles_in_question)
+    </span><span class="uncovered1"><a name="line31"></a>31
+    !roles.find_by_name(roles_in_question.map(&amp;:to_s)).blank? </span><span
+    class="uncovered0"><a name="line32"></a>32 end </span><span
+    class="inferred1"><a name="line33"></a>33 # auth stuff </span><span
+    class="inferred0"><a name="line34"></a>34 </span><span class="marked1"><a
+    name="line35"></a>35 def self.authenticate(email, password) </span><span
+    class="marked0"><a name="line36"></a>36 user = find_by_email email
+    </span><span class="marked1"><a name="line37"></a>37 user &amp;&amp;
+    user.authenticated?(password) ? user : nil </span><span class="inferred0"><a
+    name="line38"></a>38 end </span><span class="inferred1"><a
+    name="line39"></a>39 </span><span class="marked0"><a name="line40"></a>40
+    def authenticated?(password) </span><span class="marked1"><a
+    name="line41"></a>41 crypted_password == encrypt(password) </span><span
+    class="inferred0"><a name="line42"></a>42 end </span><span
+    class="inferred1"><a name="line43"></a>43 </span><span class="marked0"><a
+    name="line44"></a>44 def encrypt(password) </span><span class="marked1"><a
+    name="line45"></a>45 Digest::SHA1.hexdigest
+    &quot;--#{salt}--#{password}--&quot; </span><span class="inferred0"><a
+    name="line46"></a>46 end </span><span class="inferred1"><a
+    name="line47"></a>47 </span><span class="marked0"><a name="line48"></a>48
+    def remember_token? </span><span class="marked1"><a name="line49"></a>49
+    remember_token_expires_at &amp;&amp; Time.now.utc &lt;
+    remember_token_expires_at </span><span class="inferred0"><a
+    name="line50"></a>50 end </span><span class="inferred1"><a
+    name="line51"></a>51 </span><span class="marked0"><a name="line52"></a>52
+    def remember_me! </span><span class="marked1"><a name="line53"></a>53
+    remember_me_until 2.weeks.from_now.utc </span><span class="inferred0"><a
+    name="line54"></a>54 end </span><span class="inferred1"><a
+    name="line55"></a>55 </span><span class="marked0"><a name="line56"></a>56
+    def remember_me_until(time) </span><span class="marked1"><a
+    name="line57"></a>57 self.update_attribute :remember_token_expires_at, time
+    </span><span class="marked0"><a name="line58"></a>58 self.update_attribute
+    :remember_token, encrypt(&quot;#{email}--#{remember_token_expires_at}&quot;)
+    </span><span class="inferred1"><a name="line59"></a>59 end </span><span
+    class="inferred0"><a name="line60"></a>60 </span><span class="marked1"><a
+    name="line61"></a>61 def forget_me! </span><span class="marked0"><a
+    name="line62"></a>62 self.update_attribute :remember_token_expires_at, nil
+    </span><span class="marked1"><a name="line63"></a>63 self.update_attribute
+    :remember_token, nil </span><span class="inferred0"><a name="line64"></a>64
+    end </span><span class="inferred1"><a name="line65"></a>65 </span><span
+    class="marked0"><a name="line66"></a>66 def confirm! </span><span
+    class="marked1"><a name="line67"></a>67 self.update_attribute :confirmed,
+    true </span><span class="inferred0"><a name="line68"></a>68 end </span><span
+    class="inferred1"><a name="line69"></a>69 </span><span class="marked0"><a
+    name="line70"></a>70 protected </span><span class="marked1"><a
+    name="line71"></a>71 def initialize_salt </span><span class="marked0"><a
+    name="line72"></a>72 self.salt =
+    Digest::SHA1.hexdigest(&quot;--#{Time.now.to_s}--#{email}--&quot;) if
+    new_record? </span><span class="inferred1"><a name="line73"></a>73 end
+    </span><span class="inferred0"><a name="line74"></a>74 </span><span
+    class="marked1"><a name="line75"></a>75 def encrypt_password </span><span
+    class="marked0"><a name="line76"></a>76 return if password.blank?
+    </span><span class="marked1"><a name="line77"></a>77 self.crypted_password =
+    encrypt(password) </span><span class="inferred0"><a name="line78"></a>78 end
+    </span><span class="inferred1"><a name="line79"></a>79 </span><span
+    class="marked0"><a name="line80"></a>80 def password_required? </span><span
+    class="marked1"><a name="line81"></a>81 crypted_password.blank? ||
+    !password.blank? </span><span class="inferred0"><a name="line82"></a>82 end
+    </span><span class="inferred1"><a name="line83"></a>83 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

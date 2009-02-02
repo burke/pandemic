@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:28 -0600 2009 with 
+      Generated on Sun Feb 01 22:20:29 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -190,7 +190,7 @@
     name="line3"></a>3 has_many :users, :through =&gt; :user_roles </span><span
     class="inferred0"><a name="line4"></a>4 </span><span class="marked1"><a
     name="line5"></a>5 def name=(name) </span><span class="uncovered0"><a
-    name="line6"></a>6 write_attribute :name, name.downcase </span><span
+    name="line6"></a>6 write_attribute :name, name.to_s.downcase </span><span
     class="uncovered1"><a name="line7"></a>7 end </span><span
     class="uncovered0"><a name="line8"></a>8 end </span></pre>
     <hr />

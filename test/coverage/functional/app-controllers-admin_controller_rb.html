@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:28 -0600 2009 with 
+      Generated on Sun Feb 01 22:20:29 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -191,7 +191,7 @@
     :only_admin </span><span class="marked1"><a name="line3"></a>3 private
     </span><span class="marked0"><a name="line4"></a>4 def only_admin
     </span><span class="uncovered1"><a name="line5"></a>5 deny_access unless
-    current_user.is_an_admin? </span><span class="uncovered0"><a
+    current_user.is_an?(:admin) </span><span class="uncovered0"><a
     name="line6"></a>6 end </span><span class="uncovered1"><a name="line7"></a>7
     end </span></pre>
     <hr />

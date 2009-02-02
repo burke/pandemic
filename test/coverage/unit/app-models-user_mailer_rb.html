@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:21 -0600 2009 with 
+      Generated on Sun Feb 01 22:20:24 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -186,12 +186,12 @@
     class='uncovered' width='73' /> </tr> </table> </td> </tr> </table> </td>
     </tr> </tbody> </table><pre><span class="marked0"><a name="line1"></a> 1
     class UserMailer &lt; ActionMailer::Base </span><span class="marked1"><a
-    name="line2"></a> 2 default_url_options[:host] = 'localhost:4001'
-    </span><span class="marked0"><a name="line3"></a> 3 def
-    change_password(user) </span><span class="uncovered1"><a name="line4"></a> 4
-    from 'DO_NOT_REPLY@gmail.com' </span><span class="uncovered0"><a
+    name="line2"></a> 2 default_url_options[:host] = APP[:host] </span><span
+    class="marked0"><a name="line3"></a> 3 def change_password(user)
+    </span><span class="uncovered1"><a name="line4"></a> 4 from
+    'DO_NOT_REPLY@gmail.com' </span><span class="uncovered0"><a
     name="line5"></a> 5 recipients user.email </span><span class="uncovered1"><a
-    name="line6"></a> 6 subject &quot;[#{APP_NAME.humanize}] Change your
+    name="line6"></a> 6 subject &quot;[#{APP[:name].humanize}] Change your
     password&quot; </span><span class="uncovered0"><a name="line7"></a> 7 body
     :user =&gt; user </span><span class="uncovered1"><a name="line8"></a> 8 end
     </span><span class="inferred0"><a name="line9"></a> 9 </span><span
@@ -199,7 +199,7 @@
     class="uncovered0"><a name="line11"></a>11 recipients user.email
     </span><span class="uncovered1"><a name="line12"></a>12 from
     'DO_NOT_REPLY@gmail.com' </span><span class="uncovered0"><a
-    name="line13"></a>13 subject &quot;[#{APP_NAME.humanize}] Account
+    name="line13"></a>13 subject &quot;[#{APP[:name].humanize}] Account
     confirmation&quot; </span><span class="uncovered1"><a name="line14"></a>14
     body :user =&gt; user </span><span class="uncovered0"><a
     name="line15"></a>15 end </span><span class="uncovered1"><a

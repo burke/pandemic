@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sun Jan 25 15:15:28 -0600 2009 with 
+      Generated on Sun Feb 01 22:20:29 -0600 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -175,63 +175,60 @@
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='app-controllers-users_controller_rb.html'>
     app/controllers/users_controller.rb </a> </td> <td class='lines_total'> <tt>
-    42 </tt> </td> <td class='lines_code'> <tt> 33 </tt> </td> <td> <table
+    39 </tt> </td> <td class='lines_code'> <tt> 32 </tt> </td> <td> <table
     cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
-    class='coverage_total'> 47.6% </tt> &nbsp; </td> <td> <table
+    class='coverage_total'> 43.6% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' cellpadding='0' width='100'> <tr> <td
-    class='covered' width='48' /> <td class='uncovered' width='52' /> </tr>
+    class='covered' width='44' /> <td class='uncovered' width='56' /> </tr>
     </table> </td> </tr> </table> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 33.3%
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 31.2%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
-    cellpadding='0' width='100'> <tr> <td class='covered' width='33' /> <td
-    class='uncovered' width='67' /> </tr> </table> </td> </tr> </table> </td>
-    </tr> </tbody> </table><pre><span class="marked0"><a name="line1"></a> 1
+    cellpadding='0' width='100'> <tr> <td class='covered' width='31' /> <td
+    class='uncovered' width='69' /> </tr> </table> </td> </tr> </table> </td>
+    </tr> </tbody> </table><pre><span class="marked1"><a name="line1"></a> 1
     class UsersController &lt; ApplicationController </span><span
-    class="inferred1"><a name="line2"></a> 2 </span><span class="marked0"><a
+    class="inferred0"><a name="line2"></a> 2 </span><span class="marked1"><a
     name="line3"></a> 3 before_filter :redirect_to_root, :only =&gt; [:new,
-    :create], :if =&gt; :logged_in? </span><span class="marked1"><a
+    :create], :if =&gt; :logged_in? </span><span class="marked0"><a
     name="line4"></a> 4 filter_parameter_logging :password </span><span
-    class="inferred0"><a name="line5"></a> 5 </span><span class="marked1"><a
-    name="line6"></a> 6 def new </span><span class="uncovered0"><a
-    name="line7"></a> 7 @user = user_model.new(params[:user]) </span><span
-    class="uncovered1"><a name="line8"></a> 8 render :layout =&gt; lambda{ |c|
+    class="inferred1"><a name="line5"></a> 5 </span><span class="marked0"><a
+    name="line6"></a> 6 def new </span><span class="uncovered1"><a
+    name="line7"></a> 7 @user = User.new(params[:user]) </span><span
+    class="uncovered0"><a name="line8"></a> 8 render :layout =&gt; lambda{ |c|
     c.request.xhr? ? '/layouts/ajax' : 'application' } </span><span
-    class="uncovered0"><a name="line9"></a> 9 end </span><span
-    class="inferred1"><a name="line10"></a>10 </span><span class="marked0"><a
-    name="line11"></a>11 before_filter :existing_user? </span><span
-    class="inferred1"><a name="line12"></a>12 </span><span class="marked0"><a
-    name="line13"></a>13 def confirm </span><span class="uncovered1"><a
-    name="line14"></a>14 @user = User.find_by_id_and_salt(params[:user_id],
-    params[:salt]) </span><span class="uncovered0"><a name="line15"></a>15 if
-    @user </span><span class="uncovered1"><a name="line16"></a>16
+    class="uncovered1"><a name="line9"></a> 9 end </span><span
+    class="inferred0"><a name="line10"></a>10 </span><span class="marked1"><a
+    name="line11"></a>11 def confirm </span><span class="uncovered0"><a
+    name="line12"></a>12 @user = User.find_by_id_and_salt(params[:user_id],
+    params[:salt]) </span><span class="uncovered1"><a name="line13"></a>13 if
+    @user </span><span class="uncovered0"><a name="line14"></a>14
     flash[:success] = 'Successfully confirmed' </span><span
-    class="uncovered0"><a name="line17"></a>17 @user.confirm! </span><span
-    class="uncovered1"><a name="line18"></a>18 redirect_to login_url
-    </span><span class="uncovered0"><a name="line19"></a>19 else </span><span
-    class="uncovered1"><a name="line20"></a>20 flash[:error] = 'invalid user'
-    </span><span class="uncovered0"><a name="line21"></a>21 redirect_to
-    register_url </span><span class="uncovered1"><a name="line22"></a>22 end
-    </span><span class="uncovered0"><a name="line23"></a>23 end </span><span
-    class="inferred1"><a name="line24"></a>24 </span><span class="marked0"><a
-    name="line25"></a>25 def create </span><span class="uncovered1"><a
-    name="line26"></a>26 @user = user_model.new params[:user] </span><span
-    class="uncovered0"><a name="line27"></a>27 if @user.save </span><span
-    class="uncovered1"><a name="line28"></a>28 UserMailer.deliver_confirmation
-    @user </span><span class="uncovered0"><a name="line29"></a>29
+    class="uncovered1"><a name="line15"></a>15 @user.confirm! </span><span
+    class="uncovered0"><a name="line16"></a>16 redirect_to login_url
+    </span><span class="uncovered1"><a name="line17"></a>17 else </span><span
+    class="uncovered0"><a name="line18"></a>18 flash[:error] = 'invalid user'
+    </span><span class="uncovered1"><a name="line19"></a>19 redirect_to
+    register_url </span><span class="uncovered0"><a name="line20"></a>20 end
+    </span><span class="uncovered1"><a name="line21"></a>21 end </span><span
+    class="inferred0"><a name="line22"></a>22 </span><span class="marked1"><a
+    name="line23"></a>23 def create </span><span class="uncovered0"><a
+    name="line24"></a>24 @user = User.new params[:user] </span><span
+    class="uncovered1"><a name="line25"></a>25 if @user.save </span><span
+    class="uncovered0"><a name="line26"></a>26 UserMailer.deliver_confirmation
+    @user </span><span class="uncovered1"><a name="line27"></a>27
     flash[:success] = &quot;You will receive an email within the next few
     minutes. It contains instructions for you to confirm your account.&quot;
-    </span><span class="uncovered1"><a name="line30"></a>30 redirect_to
-    login_path </span><span class="uncovered0"><a name="line31"></a>31 else
-    </span><span class="uncovered1"><a name="line32"></a>32 render :action =&gt;
-    &quot;new&quot; </span><span class="uncovered0"><a name="line33"></a>33 end
-    </span><span class="uncovered1"><a name="line34"></a>34 end </span><span
-    class="inferred0"><a name="line35"></a>35 </span><span class="marked1"><a
-    name="line36"></a>36 private </span><span class="inferred0"><a
-    name="line37"></a>37 </span><span class="marked1"><a name="line38"></a>38
-    def existing_user? </span><span class="inferred0"><a name="line39"></a>39
-    </span><span class="inferred1"><a name="line40"></a>40 end </span><span
-    class="inferred0"><a name="line41"></a>41 </span><span class="inferred1"><a
-    name="line42"></a>42 end </span></pre>
+    </span><span class="uncovered0"><a name="line28"></a>28 redirect_to
+    login_url </span><span class="uncovered1"><a name="line29"></a>29 else
+    </span><span class="uncovered0"><a name="line30"></a>30 render :action =&gt;
+    &quot;new&quot; </span><span class="uncovered1"><a name="line31"></a>31 end
+    </span><span class="uncovered0"><a name="line32"></a>32 end </span><span
+    class="inferred1"><a name="line33"></a>33 </span><span class="marked0"><a
+    name="line34"></a>34 private </span><span class="inferred1"><a
+    name="line35"></a>35 </span><span class="marked0"><a name="line36"></a>36
+    def existing_user? </span><span class="inferred1"><a name="line37"></a>37
+    </span><span class="inferred0"><a name="line38"></a>38 end </span><span
+    class="inferred1"><a name="line39"></a>39 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

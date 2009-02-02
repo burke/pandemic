@@ -6,7 +6,7 @@ require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
-#require 'rcov/rcovtask' 
+require 'rcov/rcovtask' 
  
 namespace :test do 
   namespace :coverage do 
@@ -14,11 +14,11 @@ namespace :test do
     task(:clean) { rm_f "coverage.data" } 
   end 
 
-=begin
   desc 'Aggregate code coverage for unit, functional and integration tests' 
   task :coverage => "test:coverage:clean" 
-  %w[unit functional integration].each do |target| 
-    namespace :coverage do 
+  #%w[unit functional integration].each do |target| 
+  %w[unit functional].each do |target| 
+   namespace :coverage do 
       Rcov::RcovTask.new(target) do |t| 
         t.libs << "test" 
         t.test_files = FileList["test/#{target}/*_test.rb"] 
@@ -28,7 +28,6 @@ namespace :test do
       end 
     end 
     task :coverage => "test:coverage:#{target}" 
-  end  
-=end
-end
+  end 
+end 
 require 'tasks/rails'

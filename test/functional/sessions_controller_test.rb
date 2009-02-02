@@ -39,9 +39,25 @@ class SessionsControllerTest < ActionController::TestCase
       setup { @user = Factory(:user, :confirmed => true) }
             
       context "that is logging in" do
-        setup { login_user }
-
+        setup do
+            post :create, 
+                 :session => { :email       => @user.email,
+                               :password    => @user.password,
+                               :remember_me => false }
+        end
         should_set_the_flash_to "Logged in successfully" 
+      end
+      context "that is logging in" do
+        setup do
+          post :create, 
+               :session => { :email       => @user.email,
+                             :password    => @user.password,
+                             :remember_me => true }
+        end
+        should_set_the_flash_to "Logged in successfully"
+        should "be remembered for 2 weeks" do
+        # todo
+        end 
       end
     end
    
@@ -49,8 +65,11 @@ class SessionsControllerTest < ActionController::TestCase
       setup { @user = Factory( :user, :confirmed => false) }
 
       context "with good credentials" do
-        setup { login_user }
-
+        setup do     
+          post :create, 
+               :session => { :email    => @user.email,
+                             :password => @user.password }
+        end
         should_set_the_flash_to "Bad email or password." 
       end
     end
