@@ -22,7 +22,7 @@ class Admin::UsersController < AdminController
     @roles = Role.all
     if @user.save
       flash[:success] = 'Users was successfully created.'
-      redirect_to([:admin,@users]) 
+      redirect_to([:admin,@user]) 
     else
       render :action => "new" 
     end
@@ -49,7 +49,7 @@ class Admin::UsersController < AdminController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
+    flash[:success] = "User #{@user.email} was removed"
     redirect_to(admin_users_url)   
   end
 end

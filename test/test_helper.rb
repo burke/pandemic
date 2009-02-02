@@ -33,15 +33,14 @@ class Test::Unit::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
   # Add more helper methods to be used by all tests here...
-  def login_user(&block)
+  def login_user
 
-    old_controller = @controller
-    @controller = SessionsController.new
     post :create, 
          :session    => { :email    => @user.email,
                           :password => @user.password }
-    @request.session[:user_id] = @user.id
-    @controller = old_controller
-    block.call if block_given?
+  end
+  
+  def authenticate_as(user)
+    @request.session[:user_id] = user.id
   end
 end
