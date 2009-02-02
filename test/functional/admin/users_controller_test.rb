@@ -57,7 +57,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
       end
     
       should_redirect_to 'admin_user_url(@user)'
-      should_set_the_flash_to /Users was successfully created./
+      should_set_the_flash_to /User was successfully created./
     end
     context 'As non-admin user' do
       setup do

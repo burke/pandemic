@@ -21,7 +21,7 @@ class Admin::UsersController < AdminController
     @user = User.new(params[:user])
     @roles = Role.all
     if @user.save
-      flash[:success] = 'Users was successfully created.'
+      flash[:success] = 'User was successfully created.'
       redirect_to([:admin,@user]) 
     else
       render :action => "new" 
@@ -39,7 +39,7 @@ class Admin::UsersController < AdminController
     #  
     params[:user][:role_ids] ||= []
     if @user.update_attributes(params[:user])
-      flash[:success] = 'Users was successfully updated.'
+      flash[:success] = 'User was successfully updated.'
       redirect_to([:admin,@user]) 
     else
       render :action => "edit" 

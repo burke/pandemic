@@ -21,7 +21,7 @@ class Admin::RolesController < AdminController
     @role = Role.new(params[:role])
 
     if @role.save
-      flash[:success] = 'Roles was successfully created.'
+      flash[:success] = 'Role was successfully created.'
       redirect_to [:admin,@role]
     else
       render :action => "new" 
@@ -43,7 +43,7 @@ class Admin::RolesController < AdminController
   def destroy
     @role = Role.find(params[:id])
     @role.destroy
-    
+    flash[:success] = "Role has been removed"    
     redirect_to(admin_roles_url)
   end
 end
