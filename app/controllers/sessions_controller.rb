@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
   end
   
   def login_successful
-    flash[:success] = 'Logged in successfully'
+    flash[:success] = 'Logged in successfully.'
     redirect_back_or home_url  
   end
 

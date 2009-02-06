@@ -43,7 +43,7 @@ class Admin::RolesController < AdminController
   def destroy
     @role = Role.find(params[:id])
     @role.destroy
-    flash[:success] = "Role has been removed"    
+    flash[:success] = "Role has been removed."    
     redirect_to(admin_roles_url)
   end
 end

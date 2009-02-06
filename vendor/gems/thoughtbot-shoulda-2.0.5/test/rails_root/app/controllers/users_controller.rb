@@ -74,7 +74,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    flash[:notice] = "User was removed"
+    flash[:notice] = "User was removed."
 
     respond_to do |format|
       format.html { redirect_to users_url }

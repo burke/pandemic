@@ -69,7 +69,7 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
     @post.destroy
     
-    flash[:notice] = "Post was removed"
+    flash[:notice] = "Post was removed."
     
     respond_to do |format|
       format.html { redirect_to user_posts_url(@post.user) }

@@ -49,7 +49,7 @@ class Admin::UsersController < AdminController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:success] = "User #{@user.email} was removed"
+    flash[:success] = "User #{@user.email} was removed."
     redirect_to(admin_users_url)   
   end
 end

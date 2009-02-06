@@ -17,7 +17,7 @@ class Home::PasswordsController < HomeController
       flash.now[:warning] = 'Unknown email'
       render :action => :new
     else
-      flash[:notice] = 'Password Recovery Email sent'
+      flash[:notice] = 'Password recovery email sent.'
       UserMailer.deliver_change_password @user
       redirect_to login_url
     end
@@ -29,21 +29,21 @@ class Home::PasswordsController < HomeController
   def reset
     @user = User.find_by_email_and_crypted_password(params[:user], params[:token])
     if @user.present?
-      flash[:notice] = 'valid'
+      flash[:notice] = 'Valid.' #Maybe more verbose here?
       login @user
       render :action => :edit
     else
-      flash[:error] = 'Invalid'
+      flash[:error] = 'Invalid.'
       render :action => :new
     end
   end
   
   def update
     if current_user.update_attributes(params[:user])
-      flash[:notice] = 'Password updated'
+      flash[:notice] = 'Password updated.'
       redirect_to home_url
     else
-      flash[:error] = 'update failed'
+      flash[:error] = 'Update failed.'
       render :action => :edit
     end
   end

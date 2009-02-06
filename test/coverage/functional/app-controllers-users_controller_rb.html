@@ -202,11 +202,11 @@
     name="line12"></a>12 @user = User.find_by_id_and_salt(params[:user_id],
     params[:salt]) </span><span class="uncovered1"><a name="line13"></a>13 if
     @user </span><span class="uncovered0"><a name="line14"></a>14
-    flash[:success] = 'Successfully confirmed' </span><span
+    flash[:success] = 'Successfully confirmed.' </span><span
     class="uncovered1"><a name="line15"></a>15 @user.confirm! </span><span
     class="uncovered0"><a name="line16"></a>16 redirect_to login_url
     </span><span class="uncovered1"><a name="line17"></a>17 else </span><span
-    class="uncovered0"><a name="line18"></a>18 flash[:error] = 'invalid user'
+    class="uncovered0"><a name="line18"></a>18 flash[:error] = 'Invalid user.'
     </span><span class="uncovered1"><a name="line19"></a>19 redirect_to
     register_url </span><span class="uncovered0"><a name="line20"></a>20 end
     </span><span class="uncovered1"><a name="line21"></a>21 end </span><span
