@@ -17,3 +17,6 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 HOST = "localhost"
+
+# jruby haxors
+require 'digest/sha1'

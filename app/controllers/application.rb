@@ -2,13 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   include HoptoadNotifier::Catcher
-
   helper :all
   protect_from_forgery
   
   helper_method :current_user,
                 :logged_in?
-  
   def current_user
     @current_user ||= (user_from_session || user_from_cookie)
   end
