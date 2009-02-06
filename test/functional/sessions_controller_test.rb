@@ -38,7 +38,7 @@ class SessionsControllerTest < ActionController::TestCase
     context "Given a confirmed user" do
       setup { @user = Factory(:user, :confirmed => true) }
 
-      context "that is logging in" do
+      context "that is logging in is not to be remembered" do
         setup do
             post :create,
                  :session => { :email       => @user.email,
@@ -47,7 +47,7 @@ class SessionsControllerTest < ActionController::TestCase
         end
         should_set_the_flash_to "Logged in successfully."
       end
-      context "that is logging in" do
+      context "that is logging in and is to be remembered" do
         setup do
           post :create,
                :session => { :email       => @user.email,

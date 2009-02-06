@@ -1,3 +1,4 @@
+
 class AddDefaultUser < ActiveRecord::Migration
   def self.up
     u = User.create( :email => 'stefan.penner@gmail.com',

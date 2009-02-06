@@ -20,6 +20,12 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
+#test:
+#  adapter: jdbcsqlite3
+#  database: db/jtest.sqlite3
+#  pool: 5
+# timeout: 5000
+
 
 production:
   adapter: sqlite3
