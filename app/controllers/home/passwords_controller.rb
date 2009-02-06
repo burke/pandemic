@@ -17,7 +17,7 @@ class Home::PasswordsController < HomeController
       flash.now[:warning] = 'Unknown email'
       render :action => :new
     else
-      flash[:notice] = 'Password Recovry Email sent'
+      flash[:notice] = 'Password Recovery Email sent'
       UserMailer.deliver_change_password @user
       redirect_to login_url
     end
