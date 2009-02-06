@@ -56,8 +56,9 @@ class SessionsControllerTest < ActionController::TestCase
         end
         should_set_the_flash_to "Logged in successfully."
         should "be remembered for 2 weeks" do
-        # todo
-        # Perhaps use http://github.com/iridesco/time-warp/
+          pretend_now_is(Time.now + 2.1.weeks) do
+            assert !@user.remember_token?
+          end
         end
       end
     end
