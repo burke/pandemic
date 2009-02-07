@@ -12,6 +12,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'mocha', :version => '0.9.4'
+  config.gem 'rcov'
   config.gem 'thoughtbot-shoulda', :lib => 'shoulda',
                                    :source => "http://gems.github.com"
 
