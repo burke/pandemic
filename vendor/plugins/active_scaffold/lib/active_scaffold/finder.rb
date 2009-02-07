@@ -1,3 +1,4 @@
+require 'paginator'
 module ActiveScaffold
   module Finder
     # Takes a collection of search terms (the tokens) and creates SQL that

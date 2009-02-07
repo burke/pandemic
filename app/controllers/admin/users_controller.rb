@@ -1,5 +1,4 @@
 class Admin::UsersController < AdminController
-  
   active_scaffold :users do |config|
     config.columns = [:email, :roles, :confirmed]
     config.list.columns = [:email, :roles, :confirmed]
