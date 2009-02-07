@@ -5,3 +5,4 @@ log/*
 /doc/app/*
 .*.swp
 *~
+public/javascripts/all.js
