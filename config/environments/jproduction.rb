@@ -7,6 +7,14 @@ config.cache_classes = true
 # Enable threaded mode
  config.threadsafe!
 
+# This is ugly.
+# See: http://rails.lighthouseapp.com/projects/8994/tickets/802-eager-load-application-classes-can-block-migration
+# Rails 2.2 loads too many things when running rake db:migrate, including activescaffold,
+# which causes the migration to fail. 
+if (File.basename($0) == "rake" && ARGV.include?("db:migrate"))
+  config.eager_load_paths.clear
+end
+
 # Use a different logger for distributed setups
 # config.logger = SyslogLogger.new
 
