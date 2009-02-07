@@ -1,0 +1,16 @@
+!!!
+%html{ :lang => "en" }
+  %head
+    %meta{ :content => "text/html charset=utf-8", "http-equiv" => "Content-Type" }
+    %title= APP[:name]
+    = javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'application', :cache=>true
+    = active_scaffold_includes
+  %body
+    .container
+      - flash.each do |key, value|
+        %div{:class => key}= h(value)
+      #header= render :partial => '/shared/header'
+      - if logged_in?
+        #subheader= render :partial => '/home/menu' 
+      #bd= yield  
+           

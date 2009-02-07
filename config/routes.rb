@@ -25,8 +25,9 @@ ActionController::Routing::Routes.draw do |map|
   map.admin '/admin', :controller => 'admin'
 
   map.namespace(:admin) do |admin|
-    admin.resources :users
-    admin.resources :roles
+    admin.resources :users, :active_scaffold => true
+    admin.resources :roles, :active_scaffold => true
+    admin.resources :user_roles, :active_scaffold => true
   end
   
   map.confirmation '/confirm/:user_id/:salt', :controller => 'users', :action => 'confirm'

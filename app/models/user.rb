@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 
   has_many :roles, :through => :user_roles
 
+  # for active_scaffold
+  def to_label
+    email
+  end
+  
   # role stuff
   def role_ids=(role_ids)
     update_attribute :roles, Role.find(role_ids) || []

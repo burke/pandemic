@@ -1,9 +1,0 @@
-= render :partial => '/admin/menu' 
-%h2== Editing #{@user.email}
-- form_for([:admin,@user]) do |form|
-  = render :partial => 'form', :locals => {:form => form}
-  %p= form.submit 'Update', :disable_with => 'Please wait...' 
-
-%p
-  = link_to 'Show', [:admin,@user]
-  = link_to 'Back', admin_users_path

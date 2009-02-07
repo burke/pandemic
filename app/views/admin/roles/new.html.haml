@@ -1,7 +1,0 @@
-%h1 New Role
-
-- form_for([:admin,@role]) do |form|
-  = render :partial => 'form', :locals => {:form => form}
-  %p= form.submit "Create", :disable_with => 'Please wait...' 
-
-%p= link_to 'Back', admin_roles_path
