@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
     self.update_attribute :remember_token, encrypt("#{email}--#{remember_token_expires_at}")
   end
 
-  def forget_me!
+  def forget_me! 
     self.update_attribute :remember_token_expires_at, nil
     self.update_attribute :remember_token, nil
   end

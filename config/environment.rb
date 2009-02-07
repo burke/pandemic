@@ -23,6 +23,9 @@ Rails::Initializer.run do |config|
 
   config.gem 'gbdev-validates_as_email', :lib => 'validates_as_email',
                                          :source => 'http://gems.github.com'
+
+  config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
+                                         
 #  config.gem 'fiveruns_tuneup'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
