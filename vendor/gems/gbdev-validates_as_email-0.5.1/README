@@ -1,0 +1,47 @@
+ValidatesAsEmail
+================
+
+This gem/plugin is a re-packaged and gem'ified version of the original plugin with credit as follows:
+
+Ximon Eighteen <ximon.eighteen@int.greenpeace.org>
+Dan Kubb <dan.kubb@autopilotmarketing.com>
+Thijs van der Vossen <thijs@fngtps.com>
+
+This Ruby on Rails plugin implements an ActiveRecord validation helper called
+validates_as_email. The helper acts as if validates_format_of was used with a
+regular expression that defines an RFC822 email address conformance test.
+
+The plugin implements the regular expression here:
+
+  http://tfletcher.com/lib/rfc822.rb
+
+Which is an implementation in Ruby of a regular expression published by Cal
+Henderson for PHP here:
+
+  http://www.iamcal.com/publish/articles/php/parsing_email
+
+Installation:
+=============
+gem sources -a http://gems.github.com
+
+Install the gem(s):
+sudo gem install gbdev-validates_as_email
+
+Add to environment.rb initializer block:
+config.gem 'gbdev-validates_as_email', :version => '>=0.5.0', :lib => 'validates_as_email', :source => 'http://gems.github.com'
+
+Usage:
+======
+In your model file do something like:
+
+class MyClass < ActiveRecord::Base
+  validates_as_emaile :email, :message => 'Invalid Email Address', :allow_nil => true
+end
+
+Tests:
+======
+Some tests have been added.
+
+License:
+========
+See the LICENSE file.

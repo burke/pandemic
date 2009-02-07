@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl',
                                         :source => "http://gems.github.com"
 
-  config.gem 'stefanpenner-my_generator', :lib     => false,
+  config.gem 'stefanpenner-my_scaffold', :lib     => false,
                                           :source  => "http://gems.github.com"
 
   config.gem 'gbdev-validates_as_email', :lib => 'validates_as_email',
