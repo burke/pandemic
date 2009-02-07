@@ -1,5 +1,4 @@
 class Admin::UsersController < AdminController
-  layout "activescaffold"
   
   active_scaffold :users do |config|
     config.columns = [:email, :roles, :confirmed]
@@ -8,5 +7,4 @@ class Admin::UsersController < AdminController
     config.columns[:email].set_link :show
     config.columns[:roles].clear_link
   end
-
 end

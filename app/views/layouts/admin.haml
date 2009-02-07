@@ -3,6 +3,10 @@
   %head
     %meta{ :content => "text/html charset=utf-8", "http-equiv" => "Content-Type" }
     %title= APP[:name]
+    = stylesheet_link_tag 'blueprint/screen', :media => 'screen'
+    = stylesheet_link_tag 'blueprint/print',  :media => 'print'
+    = "<!--[if IE]>#{stylesheet_link_tag 'blueprint/ie', :media => 'screen'}<![endif]-->" 
+    = stylesheet_link_tag 'style','/facebox/facebox', :media => 'screen', :cache => true
     = javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'application', :cache=>true
     = active_scaffold_includes
   %body
@@ -10,7 +14,6 @@
       - flash.each do |key, value|
         %div{:class => key}= h(value)
       #header= render :partial => '/shared/header'
-      - if logged_in?
-        #subheader= render :partial => '/home/menu' 
+      #subheader= render :partial => '/admin/menu' 
       #bd= yield  
            
