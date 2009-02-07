@@ -6,8 +6,8 @@
     = stylesheet_link_tag 'blueprint/screen', :media => 'screen'
     = stylesheet_link_tag 'blueprint/print',  :media => 'print'
     = "<!--[if IE]>#{stylesheet_link_tag 'blueprint/ie', :media => 'screen'}<![endif]-->" 
-    = stylesheet_link_tag 'style','/facebox/facebox', :media => 'screen', :cache => true
-    = javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'application'
+    = stylesheet_link_tag 'style', :media => 'screen', :cache => true
+    = javascript_include_tag :defaults, :cache => true
     = active_scaffold_includes
   %body
     .container
