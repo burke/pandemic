@@ -1,7 +1,8 @@
-%ul
+%ul 
+  %if= link_to 'Home', root_url
   - if logged_in?
     %li= link_to 'Logout', logout_url 
-    %li= link_to 'Home', home_url
+    %li= link_to 'Dashboard', dashboard_url
     - if current_user.is_an?(:admin)
       %li= link_to 'Admin', admin_url
   - else

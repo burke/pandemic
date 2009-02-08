@@ -13,7 +13,5 @@
       - flash.each do |key, value|
         %div{:class => key}= h(value)
       #header= render :partial => '/shared/header'
-      - if logged_in?
-        #subheader= render :partial => '/home/menu' 
       #bd= yield  
            
