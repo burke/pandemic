@@ -1,0 +1,7 @@
+%h1 Personal Information
+- form_for(:user,:url => dashboard_personal_path, :html => { :method => :put }) do |form| 
+  .text_field
+    = form.label :email
+    = form.text_field :email,:class => 'text'
+  %p= form.submit 'Update', :disable_with => 'Please wait...' 
+ 

@@ -1,0 +1,10 @@
+= error_messages_for :user 
+- form_for(:user,:url => dashboard_password_path,:html => { :method => :put }) do |form| 
+  .password_field
+    = form.label :password, 'Choose password' 
+    = form.password_field :password , :class => 'text'
+  .password_field
+    = form.label :password_confirmation, 'Verify password' 
+    = form.password_field :password_confirmation, :class => 'text'
+  .submit_field
+    = form.submit 'Change your password',:disable_with => 'Please wait...' 
