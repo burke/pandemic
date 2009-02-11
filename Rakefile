@@ -30,4 +30,15 @@ namespace :test do
     task :coverage => "test:coverage:#{target}" 
   end 
 end 
+
+namespace :cache do
+  desc 'Sweep Static Page Cache'
+  task :sweep => :environment do
+    puts "Sweeping Cache..."
+    StaticSweeper.sweep
+  end
+end
+
 require 'tasks/rails'
+
+
