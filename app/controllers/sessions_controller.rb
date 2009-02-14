@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(email, password)
     if user && user.confirmed? && login(user)
       create_session_for(user)
-      remember(user) if remember_me == '1'
+      remember(user) if remember_me == true
       login_successful
     else
       login_failure
@@ -45,8 +45,9 @@ class SessionsController < ApplicationController
  
   def remember(user)
     user.remember_me!
+    user.save
     cookies[:auth_token] = { :value   => user.remember_token, 
-                             :expires => user.remember_token_expires_at }
+                             :expires => Time.at(user.remember_token_expires_at) }
   end
  
   def forget(user)

@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :role_ids
+  attr_accessible :email, 
+                  :password, 
+                  :password_confirmation, 
+                  :role_ids
 
   named_scope :confirmed, :conditions => { :confirmed => true }
 
@@ -51,13 +54,13 @@ class User < ActiveRecord::Base
   end
 
   def remember_token?
-    remember_token_expires_at && Time.now.utc < remember_token_expires_at
+    remember_token_expires_at && Time.now < Time.at(remember_token_expires_at)
   end
 
   def remember_me!
     remember_me_until 2.weeks.from_now.utc
   end
-
+  
   def remember_me_until(time)
     self.update_attribute :remember_token_expires_at, time
     self.update_attribute :remember_token, encrypt("#{email}--#{remember_token_expires_at}")

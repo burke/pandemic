@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
   
   def user_from_cookie
-    user = User.find_by_remember_token(cookies[:auth_token]) if cookies[:auth_token]
+    user = User.find_by_remember_token(cookies[:auth_token][:remember_token]) if cookies[:auth_token] && cookies[:auth_token][:remember_token]
     user && user.remember_token? ? user : nil
   end
   
@@ -56,5 +56,4 @@ class ApplicationController < ActionController::Base
    # flash[:error] = opts[:flash_message] 
     redirect_to opts[:redirect]
   end
-  
 end
