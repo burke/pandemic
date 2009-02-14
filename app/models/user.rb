@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def remember_token?
-    remember_token_expires_at && Time.now < Time.at(remember_token_expires_at)
+    remember_token_expires_at && Time.now < remember_token_expires_at
   end
 
   def remember_me!

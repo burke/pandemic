@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
     user.remember_me!
     user.save
     cookies[:auth_token] = { :value   => user.remember_token, 
-                             :expires => Time.at(user.remember_token_expires_at) }
+                             :expires => user.remember_token_expires_at }
   end
  
   def forget(user)
