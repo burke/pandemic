@@ -1,5 +1,6 @@
-- if current_user.is_an?(:admin)
-  = link_to 'Admin', admin_url
-= link_to 'Edit Personal Information', dashboard_personal_url
-= link_to 'Change Password', dashboard_password_url
-= link_to 'Logout', logout_url
+%ul
+  - if current_user.is_an?(:admin)
+    %li= link_to 'Admin', admin_url
+  %li= link_to 'Edit Personal Information', dashboard_personal_url
+  %li= link_to 'Change Password', password_url
+  %li= link_to 'Logout', logout_url

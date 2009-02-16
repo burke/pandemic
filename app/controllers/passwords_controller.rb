@@ -1,10 +1,11 @@
-class Dashboard::PasswordsController < DashboardController
+class PasswordsController < DashboardController
   skip_before_filter       :authenticate, :only => [:new,:create,:reset]
   
   filter_parameter_logging :password, 
                            :password_confirmation
   
   def new
+    render :action => :new,:layout => 'application'
   end
   
   def show
@@ -14,10 +15,10 @@ class Dashboard::PasswordsController < DashboardController
   def create
     @user = User.find_by_email params[:password][:email]
     if @user.nil?
-      flash.now[:warning] = 'Unknown email'
-      render :action => :new
+      flash.now[:error] = 'Unknown email'
+      render :action => :new, :layout => 'application'
     else
-      flash[:notice] = 'Password recovery email sent.'
+      flash[:success] = 'Password recovery email sent.'
       UserMailer.deliver_change_password @user
       redirect_to login_url
     end
@@ -29,7 +30,7 @@ class Dashboard::PasswordsController < DashboardController
   def reset
     @user = User.find_by_email_and_crypted_password(params[:user], params[:token])
     if @user.present?
-      flash[:notice] = 'Valid.' #Maybe more verbose here?
+      flash[:success] = 'Valid.' #Maybe more verbose here?
       login @user
       render :action => :edit
     else
@@ -40,7 +41,7 @@ class Dashboard::PasswordsController < DashboardController
   
   def update
     if current_user.update_attributes(params[:user])
-      flash[:notice] = 'Password updated.'
+      flash[:success] = 'Password updated.'
       redirect_to dashboard_url
     else
       flash[:error] = 'Update failed.'

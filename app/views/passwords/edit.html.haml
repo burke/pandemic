@@ -1,5 +1,5 @@
 = error_messages_for :user 
-- form_for(:user,:url => dashboard_password_path,:html => { :method => :put }) do |form| 
+- form_for(:user,:url => password_path,:html => { :method => :put }) do |form| 
   .password_field
     = form.label :password, 'Choose password' 
     = form.password_field :password , :class => 'text'

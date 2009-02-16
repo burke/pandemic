@@ -13,6 +13,7 @@
     .container
       - flash.each do |key, value|
         %div{:class => key}= h(value)
+      #header= render :partial => '/shared/header'
       #subheader= render :partial => '/admin/menu' 
       #bd= yield  
            

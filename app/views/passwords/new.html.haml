@@ -1,6 +1,6 @@
 %p We will email you a link to change your password.
 
-- form_for :password, :url => dashboard_password_path do |form| 
+- form_for :password, :url => password_path do |form| 
   .text_field
     = form.label :email, 'Email address'
     = form.text_field :email, :class => :text

@@ -15,11 +15,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.dashboard '/dashboard', :controller => 'dashboard'
   map.namespace(:dashboard) do |dashboard|
-    dashboard.resource :password do |password|
-      password.connect '/reset', :controller => 'passwords',:action => 'reset'
-    end
 
     dashboard.resource :personal, :only => [:show, :edit, :update]
+  end
+
+  map.resource :password do |password|
+    password.connect '/reset', :controller => 'passwords',:action => 'reset'
   end
   
   map.admin '/admin', :controller => 'admin'
