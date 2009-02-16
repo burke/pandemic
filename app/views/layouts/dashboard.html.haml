@@ -9,11 +9,11 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     = javascript_include_tag 'jquery.noconflict.js', :defaults, :cache => true
   %body
+    #header= render :partial => '/shared/header'
     .container
       - flash.each do |key, value|
         %div{:class => key}= h(value)
-      #header= render :partial => '/shared/header'
-      #subheader= render :partial => '/dashboard/menu' 
+      #menu= render :partial => '/dashboard/menu' 
       #bd= yield  
       #footer= render :partial => '/shared/footer'
             

@@ -3,12 +3,28 @@
 body
   :font-size 75%
   :font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+  .container
+    :width 90%
+    :min-width 600px
+    :margin 0 auto
+    :padding 10px
   #header
+    :width 90%
+    :height 50px
+    :margin 0 auto
     h1
+      :float left
     ul
+      :float right
       +horizontal-list
   #body
+    .session
+      :width 700px
+      :margin 0 auto
     .login-box
-      +column(23/2)
-    .signup-box 
-      +column(23/2) 
+      :float left
+      //+column(50%)
+    .signup-box
+      :float right
+      //+column(50%)
+       

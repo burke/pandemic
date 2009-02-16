@@ -8,8 +8,8 @@
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
   %body
+    #header= render :partial => '/shared/header'
     .container
-      #header= render :partial => '/shared/header'
       - flash.each do |key, value|
         %div{:class => key}= h(value)
       #body= yield
