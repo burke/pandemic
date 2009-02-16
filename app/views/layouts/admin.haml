@@ -14,7 +14,7 @@
     .container
       - flash.each do |key, value|
         %div{:class => key}= h(value)
-      #subheader= render :partial => '/admin/menu' 
+      #menu= render :partial => '/admin/menu' 
       #bd= yield  
       #footer= render :partial => '/shared/footer'
             
