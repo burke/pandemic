@@ -1,4 +1,4 @@
-.span-10
+.login-box
   - form_for :session, :url => session_path do |form| 
     .text_field
       = form.label :email
@@ -13,6 +13,6 @@
       = form.submit 'Login', :disable_with => 'Please wait...' 
 
   =link_to "Forgot My Password", new_password_url
-.span-10
+.signup-box
   %h2 Dont have an account yet?
   %h3=link_to 'Signup now!', register_url
