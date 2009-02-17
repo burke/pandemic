@@ -5,15 +5,14 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new(params[:user])
-    render :layout => lambda{ |c| c.request.xhr? ? '/layouts/ajax' : 'application' }
   end
   
   def confirm
     @user = User.find_by_id_and_salt(params[:user_id], params[:salt])
     if @user
       flash[:success] = 'Successfully confirmed.'
-       @user.confirm!
-       redirect_to login_url
+      @user.confirm!
+      redirect_to login_url
     else
       flash[:error] = 'Invalid user.'
       redirect_to register_url
@@ -29,11 +28,5 @@ class UsersController < ApplicationController
     else
       render :action => "new"
     end
-  end
-  
- private
-    
-  def existing_user?
-      
   end
 end

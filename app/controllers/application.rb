@@ -1,5 +1,3 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   include HoptoadNotifier::Catcher
 
@@ -51,9 +49,7 @@ class ApplicationController < ActionController::Base
  
   def deny_access(opts = {})
     opts[:redirect] ||= login_url
-    #opts[:flash_message] ||= ''#"You must be logged in to view this page, Please login or signup for a new account to continue"
     store_location
-   # flash[:error] = opts[:flash_message] 
     redirect_to opts[:redirect]
   end
 end
