@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
 
   config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
 
+  config.gem 'jscruggs-metric_fu', :version => '0.9.0', :lib => 'metric_fu', :source => 'http://gems.github.com'
   #  config.gem 'fiveruns_tuneup'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers

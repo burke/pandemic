@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user,
                 :logged_in?
+
+  hide_action :current_user, :signed_in?
+
+ 
   def current_user
     @current_user ||= (user_from_session || user_from_cookie)
   end
@@ -13,17 +17,25 @@ class ApplicationController < ActionController::Base
     current_user
   end
   
+  protected
+
   def authenticate(opts = {})
-    deny_access(opts) unless self.current_user
+    debugger
+    deny_access(opts) unless current_user
   end
   
   def user_from_session
-    User.find_by_id session[:user_id]
+    if session[:user_id]
+      user = User.find_by_id(session[:user_id])
+      user && user.confirmed? ? user : nil                
+    end
   end
   
   def user_from_cookie
-    user = User.find_by_remember_token(cookies[:auth_token][:remember_token]) if cookies[:auth_token] && cookies[:auth_token][:remember_token]
-    user && user.remember_token? ? user : nil
+    if cookies[:remember_token]
+      user = User.find_by_token(cookies[:remember_token])
+      user && user.remember? ? user : nil                
+    end
   end
   
   def login(user)
@@ -37,19 +49,26 @@ class ApplicationController < ActionController::Base
  
   def redirect_to_root
     redirect_to root_url
-  end  
+  end 
+ 
   def redirect_back_or(default)
     session[:return_to] ? redirect_to(session[:return_to]) : redirect_to(default)
     session[:return_to] = nil
   end
   
   def store_location
-    session[:return_to] = request.request_uri
+    session[:return_to] = request.request_uri if request.get?
   end
  
   def deny_access(opts = {})
-    opts[:redirect] ||= login_url
     store_location
-    redirect_to opts[:redirect]
+    flash[:error] = opts[:flash] || "Access Denied"
+    render :template => "/sessions/new", :layout => "application", :status => :unauthorized 
+  end
+
+  def call_rake(task, options = {})
+    options[:rails_env] = Rails.env
+    args = options.map { |key,value| "#{key.to_s.upcase}='#{value}" }
+    system "rake #{task} #{args.join(' ')} --trace >> #{Rails.root}/log/rake.log &"
   end
 end

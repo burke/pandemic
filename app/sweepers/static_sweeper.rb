@@ -12,7 +12,7 @@ class StaticSweeper < ActionController::Caching::Sweeper
    cached -= blacklist
    
    cached.each do |file|
-     FileUtils.rm_r(file) rescue Errno::ENOENT
+     FileUtils.rm_r(file)
      message = "[ deleted ] #{file}" 
      puts message
      RAILS_DEFAULT_LOGGER.info(message)

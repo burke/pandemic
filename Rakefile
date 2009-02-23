@@ -7,6 +7,15 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rcov/rcovtask' 
+require 'metric_fu'
+require 'rcov'
+require 'rcov/rcovtask' 
+
+Rcov::RcovTask.new do |t| 
+  t.libs << "test" 
+  t.test_files = FileList['test/*_test.rb'] 
+  t.verbose = true 
+end
  
 namespace :test do 
   namespace :coverage do 
@@ -17,6 +26,7 @@ namespace :test do
   desc 'Aggregate code coverage for unit, functional and integration tests' 
   task :coverage => "test:coverage:clean" 
   #%w[unit functional integration].each do |target| 
+
   %w[unit functional].each do |target| 
    namespace :coverage do 
       Rcov::RcovTask.new(target) do |t| 

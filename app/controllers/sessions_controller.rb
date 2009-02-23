@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
   def new
     render :layout => lambda{ |c| c.request.xhr? ? '/layouts/ajax' : 'application' }
   end
+  
+  def show
+    redirect_to login_url
+  end
 
   def destroy
     forget(current_user)
@@ -29,7 +33,7 @@ class SessionsController < ApplicationController
       remember(user) if remember_me == true
       login_successful
     else
-      login_failure
+      deny_access :flash => "Bad email or password." 
     end
   end
   
@@ -38,20 +42,14 @@ class SessionsController < ApplicationController
     redirect_back_or dashboard_url  
   end
 
-  def login_failure(message = "Bad email or password.")
-    flash.now[:error] = message
-    render :action => :new
-  end
- 
   def remember(user)
     user.remember_me!
-    user.save
-    cookies[:auth_token] = { :value   => user.remember_token, 
-                             :expires => user.remember_token_expires_at }
+    cookies[:remember_token] = { :value   => user.remember_token, 
+                                 :expires => user.remember_token_expires_at }
   end
  
   def forget(user)
     user.forget_me! if user
-    cookies.delete :auth_token
+    cookies.delete :remember_token
   end
 end

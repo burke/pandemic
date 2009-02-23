@@ -31,5 +31,5 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :user_roles, :active_scaffold => true
   end
   
-  map.confirmation '/confirm/:user_id/:salt', :controller => 'users', :action => 'confirm'
+  map.confirmation '/confirm/:salt', :controller => 'users', :action => 'confirm'
 end

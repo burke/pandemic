@@ -14,12 +14,17 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_as_email        :email
 
+  before_create :send_welcome_email
+
   before_save :initialize_salt, :encrypt_password
 
   has_many :user_roles
 
   has_many :roles, :through => :user_roles
 
+  def send_welcome_email
+    UserMailer.deliver_confirmation self
+  end
   # for active_scaffold
   def to_label
     email
@@ -64,6 +69,7 @@ class User < ActiveRecord::Base
   def remember_me_until(time)
     self.update_attribute :remember_token_expires_at, time
     self.update_attribute :remember_token, encrypt("#{email}--#{remember_token_expires_at}")
+    save(false)      
   end
 
   def forget_me! 
@@ -71,6 +77,9 @@ class User < ActiveRecord::Base
     self.update_attribute :remember_token, nil
   end
 
+  def confirmed?
+    confirmed
+  end
   def confirm!
     self.update_attribute :confirmed, true
   end
