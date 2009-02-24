@@ -21,11 +21,11 @@ module ActiveScaffold
           value = record.send(column.name)
 
           if column.association.nil? or column_empty?(value)
-            formatted_value = clean_column_value(format_column(value))
+            formatted_value = clean_column_value(format_value(value))
           else
             case column.association.macro
               when :has_one, :belongs_to
-                formatted_value = clean_column_value(format_column(value.to_label))
+                formatted_value = clean_column_value(format_value(value.to_label))
 
               when :has_many, :has_and_belongs_to_many
                 if column.associated_limit.nil?
@@ -34,7 +34,7 @@ module ActiveScaffold
                   firsts = value.first(column.associated_limit + 1).collect { |v| v.to_label }
                   firsts[column.associated_limit] = '…' if firsts.length > column.associated_limit
                 end
-                formatted_value = clean_column_value(format_column(firsts.join(', ')))
+                formatted_value = clean_column_value(format_value(firsts.join(', ')))
                 formatted_value << " (#{value.length})" if column.associated_number? and column.associated_limit and firsts.length > column.associated_limit
                 formatted_value
             end
@@ -59,7 +59,7 @@ module ActiveScaffold
             if controller_actions.include?(:create) and column.actions_for_association_links.include? :new and column_model.authorized_for?(:action => :create)
               link.action = 'new'
               link.crud_type = :create
-              text = as_('Create New')
+              text = as_(:create_new)
             end
           end
           return "<a class='disabled'>#{text}</a>" unless record.authorized_for?(:action => column.link.crud_type)
@@ -137,7 +137,7 @@ module ActiveScaffold
       ## Formatting
       ##
 
-      def format_column(column_value)
+      def format_value(column_value)
         if column_empty?(column_value)
           active_scaffold_config.list.empty_field_text
         elsif column_value.instance_of? Time
@@ -167,7 +167,7 @@ module ActiveScaffold
         if column.list_ui == :checkbox
           active_scaffold_column_checkbox(column, record)
         else
-          clean_column_value(format_column(value))
+          clean_column_value(format_value(value))
         end
       end
       
@@ -177,11 +177,11 @@ module ActiveScaffold
         tag_options = {:tag => "span", :id => element_cell_id(id_options), :class => "in_place_editor_field"}
         in_place_editor_options = {:url => {:controller => params_for[:controller], :action => "update_column", :column => column.name, :id => record.id.to_s},
          :with => params[:eid] ? "Form.serialize(form) + '&eid=#{params[:eid]}'" : nil,
-         :click_to_edit_text => as_("Click to edit"),
-         :cancel_text => as_("Cancel"),
-         :loading_text => as_("Loading…"),
-         :save_text => as_("Update"),
-         :saving_text => as_("Saving…"),
+         :click_to_edit_text => as_(:click_to_edit),
+         :cancel_text => as_(:cancel),
+         :loading_text => as_(:loading),
+         :save_text => as_(:update),
+         :saving_text => as_(:saving),
          :options => "{method: 'post'}",
          :script => true}.merge(column.options)
         content_tag(:span, formatted_column, tag_options) + in_place_editor(tag_options[:id], in_place_editor_options)

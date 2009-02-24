@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates_presence_of     :password, :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
   validates_uniqueness_of   :email
-  validates_as_email        :email
+#  validates_as_email        :email
 
   before_create :send_welcome_email
 
