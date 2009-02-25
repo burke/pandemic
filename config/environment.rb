@@ -10,6 +10,8 @@ RAILS_GEM_VERSION = '2.3.0' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+require "#{File.dirname(__FILE__)}/../lib/authentication.rb"
+ 
 Rails::Initializer.run do |config|
 
   config.gem 'mocha', :version => '0.9.4'
@@ -55,6 +57,7 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   config.load_paths += %W{ #{RAILS_ROOT}/app/sweepers}
+
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
