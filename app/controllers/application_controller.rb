@@ -62,8 +62,10 @@ class ApplicationController < ActionController::Base
  
   def deny_access(opts = {})
     store_location
-    flash[:error] = opts[:flash] || "Access Denied"
-    render :template => "/sessions/new", :layout => "application", :status => :unauthorized 
+    flash[:error] = opts[:flash] if opts[:flash]
+    render :template => "/sessions/new", 
+           :layout => "application", 
+           :status => :unauthorized 
   end
 
   def call_rake(task, options = {})
