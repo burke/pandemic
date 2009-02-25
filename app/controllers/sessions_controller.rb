@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
   
   def login_successful
     flash[:success] = 'Logged in successfully.'
-    redirect_back_or dashboard_url  
+    redirect_back_or dashboard_url
   end
 
   def remember(user)
