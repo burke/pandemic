@@ -10,12 +10,12 @@ RAILS_GEM_VERSION = '2.3.0' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
-require "#{File.dirname(__FILE__)}/../lib/authentication.rb"
+#require "#{File.dirname(__FILE__)}/../lib/authentication.rb"
  
 Rails::Initializer.run do |config|
 
   config.gem 'mocha', :version => '0.9.4'
-  config.gem 'rcov'
+#  config.gem 'rcov'
   config.gem 'thoughtbot-shoulda', :lib => 'shoulda',
                                    :source => "http://gems.github.com"
 
@@ -25,12 +25,10 @@ Rails::Initializer.run do |config|
   config.gem 'stefanpenner-my_scaffold', :lib     => false,
                                           :source  => "http://gems.github.com"
 
-  config.gem 'gbdev-validates_as_email', :lib => 'validates_as_email',
-                                         :source => 'http://gems.github.com'
-
   config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
 
-  config.gem 'jscruggs-metric_fu', :version => '0.9.0', :lib => 'metric_fu', :source => 'http://gems.github.com'
+ # config.gem 'jscruggs-metric_fu', :version => '0.9.0', :lib => 'metric_fu', :source => 'http://gems.github.com'
+
   #  config.gem 'fiveruns_tuneup'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
