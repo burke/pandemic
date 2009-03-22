@@ -7,14 +7,14 @@
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
-    = javascript_include_tag 'jquery.noconflict.js', :defaults, :cache => true
   %body
     #header= render :partial => '/shared/header'
-    .container
-      - flash.each do |key, value|
-        %div{:class => key}= h(value)
-      #menu= render :partial => '/dashboard/menu' 
-      #body= yield  
-      #footer= render :partial => '/shared/footer'
+    #body
+      .container
+        - flash.each do |key, value|
+          %div{:class => key}= h(value)
+        #menu= render :partial => '/dashboard/menu' 
+        = yield  
+        #footer= render :partial => '/shared/footer'
             
 

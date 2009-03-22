@@ -1,19 +1,18 @@
-.session
-  .login-box
-    - form_for :session, :url => session_path do |form| 
-      .text_field
-        = form.label :email
-        = form.text_field :email, :class => "text"
-      .text_field
-        = form.label :password
-        = form.password_field :password, :class => "text"
-      .text_field
-        = form.label :remember_me 
-        = form.check_box :remember_me 
-      .submit_field
-        = form.submit 'Login', :disable_with => 'Please wait...' 
+.login_box
+  - form_for :session, :url => session_path do |form| 
+    .text_field
+      = form.label :email
+      = form.text_field :email, :class => "text"
+    .text_field
+      = form.label :password
+      = form.password_field :password, :class => "text"
+    .text_field
+      = form.label :remember_me 
+      = form.check_box :remember_me 
+    .submit_field
+      = form.submit 'Login', :disable_with => 'Please wait...' 
 
-    =link_to "Forgot My Password", new_password_url
-  .signup-box
-    %h2 Dont have an account yet?
-    %h3=link_to 'Signup now!', register_url
+  =link_to "Forgot My Password", new_password_url
+.signup_box
+  %h2 Dont have an account yet?
+  %h3=link_to 'Signup now!', register_url

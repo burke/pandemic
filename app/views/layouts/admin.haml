@@ -7,14 +7,13 @@
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
-    = javascript_include_tag :defaults, :cache => true
-    = active_scaffold_includes
   %body
     #header= render :partial => '/shared/header'
-    .container
-      - flash.each do |key, value|
-        %div{:class => key}= h(value)
-      #menu= render :partial => '/admin/menu' 
-      #bd= yield  
-      #footer= render :partial => '/shared/footer'
+    #body
+      .container    
+        - flash.each do |key, value|
+          %div{:class => key}= h(value)
+        #menu= render :partial => '/admin/menu' 
+        = yield  
+        #footer= render :partial => '/shared/footer'
             
