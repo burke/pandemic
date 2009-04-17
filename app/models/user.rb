@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  before_create :send_welcome_email
+ # before_create :send_welcome_email
 
   before_save :initialize_salt, :encrypt_password
 
