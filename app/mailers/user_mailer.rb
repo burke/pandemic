@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default_url_options[:host] = APP[:host]
-  def change_password(user)
+  def forgotten_password(user)
     from       'DO_NOT_REPLY@gmail.com'
     recipients user.email
     subject    "[#{APP[:name].humanize}] Change your password"

@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource  :session
 
   map.resource :password do |password|
-    password.connect '/reset', :controller => 'passwords',:action => 'reset'
+    password.connect '/reset/:crypted_password', :controller => 'passwords',:action => 'reset'
   end
 
   map.confirmation '/confirm/:salt', :controller => 'users', :action => 'confirm'

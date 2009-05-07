@@ -19,7 +19,7 @@ class PasswordsController < DashboardController
       render :action => :new, :layout => 'application'
     else
       flash[:success] = 'Password recovery email sent.'
-      UserMailer.deliver_change_password @user
+      UserMailer.deliver_forgotten_password @user
       redirect_to login_url
     end
   end
@@ -28,7 +28,7 @@ class PasswordsController < DashboardController
   end
 
   def reset
-    @user = User.find_by_email_and_crypted_password(params[:user], params[:token])
+    @user = User.find_by_crypted_password(params[:crypted_password])
     if @user.present?
       flash[:success] = 'Valid.' #Maybe more verbose here?
       login @user
