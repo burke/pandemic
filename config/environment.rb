@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.2.1' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -15,19 +15,17 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 
   config.gem 'mocha', :version => '0.9.4'
-#  config.gem 'rcov'
-  config.gem 'thoughtbot-shoulda', :lib => 'shoulda',
-                                   :source => "http://gems.github.com"
+  config.gem 'thoughtbot-shoulda',       :lib => 'shoulda',      :source => "http://gems.github.com"
+  config.gem 'thoughtbot-factory_girl',  :lib => 'factory_girl', :source => "http://gems.github.com"
+  config.gem 'stefanpenner-my_scaffold', :lib => false,          :source => "http://gems.github.com"
+  config.gem 'iridesco-time-warp',       :lib => 'time_warp',    :source => "http://gems.github.com"
 
-  config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl',
-                                        :source => "http://gems.github.com"
+  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers/
+                           #{RAILS_ROOT}/app/observers/
+                           #{RAILS_ROOT}/app/mailers/)
+  
 
-  config.gem 'stefanpenner-my_scaffold', :lib     => false,
-                                          :source  => "http://gems.github.com"
-
-  config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
-
- # config.gem 'jscruggs-metric_fu', :version => '0.9.0', :lib => 'metric_fu', :source => 'http://gems.github.com'
+  # config.gem 'jscruggs-metric_fu', :version => '0.9.0', :lib => 'metric_fu', :source => 'http://gems.github.com'
 
   #  config.gem 'fiveruns_tuneup'
   # Settings in config/environments/* take precedence over those specified here.
@@ -54,7 +52,6 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W{ #{RAILS_ROOT}/app/sweepers}
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
@@ -87,4 +84,5 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+  config.active_record.observers = :user_observer
 end
