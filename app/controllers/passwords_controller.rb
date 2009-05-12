@@ -1,5 +1,5 @@
 class PasswordsController < DashboardController
-  skip_before_filter       :authenticate, :only => [:new,:create,:reset]
+  skip_before_filter       :require_user, :only => [:new,:create,:reset]
   
   filter_parameter_logging :password, 
                            :password_confirmation
@@ -28,10 +28,10 @@ class PasswordsController < DashboardController
   end
 
   def reset
-    @user = User.find_by_crypted_password(params[:crypted_password])
+    @user = User.find_by_perishable_token(params[:perishable_token])
     if @user.present?
       flash[:success] = 'Valid.' #Maybe more verbose here?
-      login @user
+      UserSession.create(@user, true) 
       render :action => :edit
     else
       flash[:error] = 'Invalid.'

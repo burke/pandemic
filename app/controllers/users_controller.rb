@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
+  before_filter :require_no_user
 
-  before_filter :redirect_to_root, :only => [:new, :create], :if => :logged_in?
-  filter_parameter_logging :password
-  
   def new
     @user = User.new(params[:user])
   end
   
   def confirm
-    @user = User.find_by_salt(params[:salt])
+    @user = User.find_by_perishable_token(params[:perishable_token])
     if @user
       flash[:success] = 'Successfully confirmed.'
-      @user.confirm!
+      @user
       redirect_to login_url
     else
       flash[:error] = 'Invalid user.'
@@ -25,6 +23,7 @@ class UsersController < ApplicationController
       flash[:success] = "You will receive an email within the next few minutes. It contains instructions for you to confirm your account."
       redirect_to login_url
     else
+      flash[:error] = "failed"
       render :action => "new"
     end
   end

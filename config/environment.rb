@@ -19,7 +19,7 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-factory_girl',  :lib => 'factory_girl', :source => "http://gems.github.com"
   config.gem 'stefanpenner-my_scaffold', :lib => false,          :source => "http://gems.github.com"
   config.gem 'iridesco-time-warp',       :lib => 'time_warp',    :source => "http://gems.github.com"
-
+  config.gem 'authlogic'
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers/
                            #{RAILS_ROOT}/app/observers/
                            #{RAILS_ROOT}/app/mailers/)

@@ -5,17 +5,18 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.root     :controller => "static", :action => "index"
+  map.resource :user_session
  
-  map.login    '/login',    :controller => 'sessions', :action => 'new'
-  map.logout   '/logout',   :controller => 'sessions', :action => 'destroy'
-  map.register '/register', :controller => 'users',    :action => 'new'
+  map.login    '/login',    :controller => 'user_sessions', :action => 'new'
+  map.logout   '/logout',   :controller => 'user_sessions', :action => 'destroy'
+  map.register '/register', :controller => 'user', :action => 'new'
   map.resource  :session
 
   map.resource :password do |password|
-    password.connect '/reset/:crypted_password', :controller => 'passwords',:action => 'reset'
+    password.connect '/reset/:perishable_token', :controller => 'passwords',:action => 'reset'
   end
 
-  map.confirmation '/confirm/:salt', :controller => 'users', :action => 'confirm'
+  map.confirmation '/confirm/:perishable_token', :controller => 'users', :action => 'confirm'
 
   map.resources :users
 
