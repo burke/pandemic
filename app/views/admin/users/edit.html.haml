@@ -1,0 +1,9 @@
+%h1 Editing User
+= error_message_on :financial_plan, :base
+- form_for([:admin,@user]) do |form|
+  = render :partial => 'form', :locals => {:form => form}
+  %p= form.submit 'Update'
+
+%p
+  = link_to 'Show', [:admin,@user]
+  = link_to 'Back', admin_users_path

@@ -1,0 +1,51 @@
+%ul
+  %li 
+    Login
+    = h @user.login
+  %li
+    Email
+    = h @user.email
+  %li
+    Password
+    = h @user.password
+  %li
+    Password confirmation
+    = h @user.password_confirmation
+  %li
+    Type
+    = h @user.type
+  %li
+    Persitence token
+    = h @user.persistence_token
+  %li
+    Single access token
+    = h @user.single_access_token
+  %li
+    Perishable token
+    = h @user.perishable_token
+  %li
+    Login count
+    = h @user.login_count
+  %li
+    Failed login count
+    = h @user.failed_login_count
+  %li
+    Last request at
+    = h @user.last_request_at
+  %li
+    Current login at
+    = h @user.current_login_at
+  %li
+    Last login at
+    = h @user.last_login_at
+  %li
+    Current login ip
+    = h @user.current_login_ip
+  %li
+    Last login ip
+    = h @user.last_login_ip
+
+%p
+  = link_to 'Edit', edit_admin_user_path(@user)
+  |
+  = link_to 'Back', admin_users_path

@@ -1,7 +1,8 @@
 class AdminController < ApplicationController
-  before_filter :authenticate, :only_admin
+  before_filter :require_user,:only_admin
+  
   private
   def only_admin
-    deny_access unless current_user.is_an?(:admin)
+    insufficient_privileges unless current_user.is_a?(Administrator)
   end
 end

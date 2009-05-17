@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20081115160452) do
     t.string   "persistence_token",                  :null => false
     t.string   "single_access_token",                :null => false
     t.string   "perishable_token",                   :null => false
+    t.string   "state",                              :null => false
     t.integer  "login_count",         :default => 0, :null => false
     t.integer  "failed_login_count",  :default => 0, :null => false
     t.datetime "last_request_at"

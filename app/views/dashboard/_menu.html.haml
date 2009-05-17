@@ -1,5 +1,5 @@
 %ul
-  -# if current_user.is_an?(:admin)
+  -if current_user.is_a?(Administrator)
     %li= link_to 'Admin', admin_url
   %li= link_to 'Edit Personal Information', dashboard_personal_url
   %li= link_to 'Change Password', password_url

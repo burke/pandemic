@@ -4,12 +4,12 @@ ActionController::Routing::Routes.draw do |map|
     map.connect page, :controller => 'static', :action => page
   end
   
-  map.root     :controller => "static", :action => "index"
-  map.resource :user_session
- 
+  map.root     :controller => 'static', :action => 'index'
+  map.resource :user_session, :as => 'session'
+# 
   map.login    '/login',    :controller => 'user_sessions', :action => 'new'
   map.logout   '/logout',   :controller => 'user_sessions', :action => 'destroy'
-  map.register '/register', :controller => 'user', :action => 'new'
+  map.signup   '/signup',   :controller => 'users', :action => 'new'
   map.resource  :session
 
   map.resource :password do |password|
@@ -29,9 +29,10 @@ ActionController::Routing::Routes.draw do |map|
   map.admin '/admin', :controller => 'admin'
 
   map.namespace(:admin) do |admin|
-    admin.resources :users, :active_scaffold => true
-    admin.resources :roles, :active_scaffold => true
-    admin.resources :user_roles, :active_scaffold => true
+    admin.resources :users
+    admin.resources :administrators, :controller => 'users'
+    admin.resources :roles
+    admin.resources :user_roles
   end
   
 end

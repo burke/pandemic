@@ -10,7 +10,8 @@
   %body
     #header= render :partial => '/shared/header'
     #body
-      - flash.each do |key, value|
-        %div{:class => key}= h(value)
-      .container= yield
+      .container
+        - flash.each do |key,value|
+          %div{ :class => key}=h value
+        = yield
            

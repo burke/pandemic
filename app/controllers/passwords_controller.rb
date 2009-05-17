@@ -5,7 +5,7 @@ class PasswordsController < DashboardController
                            :password_confirmation
   
   def new
-    render :action => :new,:layout => 'application'
+    render :action => :new, :layout => 'application'
   end
   
   def show
@@ -25,6 +25,7 @@ class PasswordsController < DashboardController
   end
   
   def edit
+
   end
 
   def reset

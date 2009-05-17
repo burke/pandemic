@@ -6,6 +6,7 @@ module Chromium53
         controller.send(:include, InstanceMethods)
         controller.send(:helper_method, :current_user, :current_user_session)
         controller.send(:filter_parameter_logging, :login, :password, :password_confirmation)
+        controller.send(:helper,:all)
       end
     
       module InstanceMethods
@@ -28,16 +29,20 @@ module Chromium53
              return false
            end
          end
-     
+         def insufficient_privileges
+           flash[:notice] = "You do not have sufficient privileges"
+           redirect_to dashboard_url
+         end
+
          def require_no_user
            if current_user
              store_location
-             flash[:notice] = "You must be logged out to access this page"
-             redirect_to account_url
+             flash[:notice] = "You are already logged in"
+             redirect_to dashboard_url
              return false
            end
          end
-         
+
          def store_location
            session[:return_to] = request.request_uri
          end

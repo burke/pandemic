@@ -1,0 +1,7 @@
+%h1 New User
+= error_message_on :financial_plan, :base
+- form_for(@user) do |form|
+  = render :partial => 'form', :locals => {:form => form}
+  %p= form.submit "Create"
+
+%p= link_to 'Back', users_path

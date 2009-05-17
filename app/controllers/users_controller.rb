@@ -8,12 +8,13 @@ class UsersController < ApplicationController
   def confirm
     @user = User.find_by_perishable_token(params[:perishable_token])
     if @user
+      @user.confirm!
+      UserSession.create(@user,true)
       flash[:success] = 'Successfully confirmed.'
-      @user
-      redirect_to login_url
+      redirect_to dashboard_url
     else
       flash[:error] = 'Invalid user.'
-      redirect_to register_url
+      redirect_to signup_url
     end
   end  
   
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
       flash[:success] = "You will receive an email within the next few minutes. It contains instructions for you to confirm your account."
       redirect_to login_url
     else
-      flash[:error] = "failed"
       render :action => "new"
     end
   end

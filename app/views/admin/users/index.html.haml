@@ -1,0 +1,26 @@
+%h1 Listing Users
+
+%table
+  %tr
+    %th Login
+    %th Email
+    %th Type
+    %th Login count
+    %th Failed login count
+    %th Last login at
+    %th Last login ip
+
+  - for user in @users
+    %tr
+      %td= h user.login
+      %td= h user.email
+      %td= h user.type
+      %td= h user.login_count
+      %td= h user.failed_login_count
+      %td= h user.last_login_at
+      %td= h user.last_login_ip
+      %td= link_to 'Show', [:admin,user]
+      %td= link_to 'Edit', [:edit,:admin,user]
+      %td= link_to 'Destroy',[:admin,user], :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to 'New User', new_admin_user_path

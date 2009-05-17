@@ -1,7 +1,7 @@
 .login_box
   - form_for :user_session, :url => user_session_path do |form| 
     .text_field
-      = form.label :login
+      = form.label :login, 'Login/Email'
       = form.text_field :login, :class => "text"
     .text_field
       = form.label :password
@@ -15,5 +15,5 @@
   =link_to "Forgot My Password", new_password_url
 .signup_box
   %h2 Dont have an account yet?
-  %h3=link_to 'Signup now!', register_url
+  %h3=link_to 'Signup now!', signup_url
 
