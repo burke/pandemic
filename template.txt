@@ -78,6 +78,9 @@ environment(%q{
   config.active_record.observers = :user_observer
 })
 
+router 'Chromium53::Routes.add_to(map)'
+
+
 git :add    => '.'
 git :commit => "-a -m 'added core engine plugin, should be good to go'"
 
