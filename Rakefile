@@ -7,22 +7,6 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-namespace :cache do
-  desc 'Sweep Static Page Cache'
-  task :sweep => :environment do
-    puts "Sweeping Cache..."
-    StaticSweeper.sweep
-  end
-end
-
-namespace :db do
-  desc 'Load the seed data from db/seeds.rb'
-  task :seed => :environment do
-    seed_file = File.join(Rails.root, 'db', 'seeds.rb')
-    load(seed_file) if File.exist?(seed_file)
-  end
-end
-
 # plugin stuff
 desc 'Default: run unit tests.'
 task :default => :test
