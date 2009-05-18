@@ -82,4 +82,15 @@ git :add    => '.'
 git :commit => "-a -m 'added core engine plugin, should be good to go'"
 
 rake 'db:migrate'
-rake 'db:seed'
+rake ' db:seed'
+
+puts %q{
+----------------------------
+Default Admin Account seeded
+----------------------------
+
+    Username: Admin
+    Password: changeme
+
+----------------------------
+}
