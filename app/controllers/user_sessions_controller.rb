@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
       flash[:success] = "Login successful!"
       redirect_back_or_default dashboard_url
     else
-      flash[:error] = @user_session.errors[:base]
+      flash[:error] = errors if errors = @user_session.errors[:base]
       render :action => :new
     end
   end

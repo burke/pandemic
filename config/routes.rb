@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource  :session
 
   map.resource :password do |password|
-    password.connect '/reset/:perishable_token', :controller => 'passwords',:action => 'reset'
+    password.reset '/reset/:perishable_token', :controller => 'passwords',:action => 'reset'
   end
 
   map.confirmation '/confirm/:perishable_token', :controller => 'users', :action => 'confirm'

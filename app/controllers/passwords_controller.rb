@@ -31,11 +31,11 @@ class PasswordsController < DashboardController
   def reset
     @user = User.find_by_perishable_token(params[:perishable_token])
     if @user.present?
-      flash[:success] = 'Valid.' #Maybe more verbose here?
+      flash[:success] = 'You may now reset your password.' #Maybe more verbose here?
       UserSession.create(@user, true) 
       render :action => :edit
     else
-      flash[:error] = 'Invalid.'
+      flash[:error] = 'Invalid password reset token.'
       render :action => :new
     end
   end

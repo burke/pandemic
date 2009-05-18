@@ -1,0 +1,84 @@
+file '.gitignore', %q{
+tmp/**/*
+coverage/*
+log/*.log
+log/*.pid
+db/*.db
+db/*.sqlite3
+db/schema.rb
+tmp/**/*
+.DS_Store
+doc/api
+doc/app
+public/javascripts/all.js
+public/stylesheets/all.css
+coverage/*
+.dotest/*
+}
+
+run 'touch log/.gitignore'
+run 'touch tmp/.gitignore'
+run 'touch vendor/.gitignore'
+
+run "rm README"
+run "rm public/index.html"
+run "rm public/favicon.ico"
+run "rm public/robots.txt"
+run "rm public/images/rails.png"
+run "rm -f public/javascripts/*"
+
+git :init 
+git :add    => '.'
+git :commit => "-m 'Initial Commit'"
+
+gem 'authlogic'
+gem 'thoughtbot-shoulda',       :lib => 'shoulda',      :source => 'http://gems.github.com'
+gem 'thoughtbot-factory_girl',  :lib => 'factory_girl', :source => 'http://gems.github.com'
+gem 'stefanpenner-my_scaffold', :lib => 'my_scaffold',  :source => 'http://gems.github.com'
+
+rake 'gems:install'
+
+git :add    => '.'
+git :commit => "-a -m 'added gems.'"
+
+run 'haml --rails .' 
+
+plugin 'action_mailer_tls', :git => 'git://github.com/stefanpenner/action_mailer_tls.git'
+plugin 'state_machine',     :git => 'git://github.com/pluginaweek/state_machine.git'
+plugin 'hoptoad_notifier',  :git => 'git://github.com/thoughtbot/hoptoad_notifier.git'
+
+git :add    => '.'
+git :commit => "-a -m 'added plugins.'"
+
+git :clone => 'git@github.com:53cr/core.git vendor/plugins/core'
+
+run 'rsync -ruv vendor/plugins/core/db/migrate db'
+run 'rsync -ruv vendor/plugins/core/public .'
+run 'rsync -ruv vendor/plugins/core/config/initializers config'
+run 'rsync -ruv vendor/plugins/core/app/views/user_mailer app/views'
+
+file 'app/controllers/application_controller.rb', %q{
+class ApplicationController < ActionController::Base
+  include HoptoadNotifier::Catcher
+  include Chromium53::Authentication::ApplicationController
+end
+}
+
+environment(%q{
+  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers/
+                           #{RAILS_ROOT}/app/observers/
+                           #{RAILS_ROOT}/app/mailers/
+                           #{RAILS_ROOT}/vendor/plugins/core/app/sweepers/
+                           #{RAILS_ROOT}/vendor/plugins/core/app/observers/
+                           #{RAILS_ROOT}/vendor/plugins/core/app/mailers/)
+  
+  config.load_once_paths += %W( #{RAILS_ROOT}/vendor/plugins/core/app/observers/)
+  
+  config.active_record.observers = :user_observer
+})
+
+git :add    => '.'
+git :commit => "-a -m 'added core engine plugin, should be good to go'"
+
+rake 'db:migrate'
+
