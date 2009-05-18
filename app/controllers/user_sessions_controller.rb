@@ -11,7 +11,8 @@ class UserSessionsController < ApplicationController
       flash[:success] = "Login successful!"
       redirect_back_or_default dashboard_url
     else
-      flash[:error] = errors if errors = @user_session.errors[:base]
+      errors = @user_session.errors[:base]
+      flash[:error] = errors if errors 
       render :action => :new
     end
   end
@@ -19,7 +20,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:success] = "Logout successful!"
-    redirect_back_or_default new_user_session_url
+    redirect_to new_user_session_url
   end
 end
  

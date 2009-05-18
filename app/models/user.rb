@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_protected :state
+
   acts_as_authentic do |config|
     config.perishable_token_valid_for = 1.hour
   end

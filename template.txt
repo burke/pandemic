@@ -56,6 +56,7 @@ run 'rsync -ruv vendor/plugins/core/db/migrate db'
 run 'rsync -ruv vendor/plugins/core/public .'
 run 'rsync -ruv vendor/plugins/core/config/initializers config'
 run 'rsync -ruv vendor/plugins/core/app/views/user_mailer app/views'
+run 'rsync -ruv vendor/plugins/core/db/seed.rb db'
 
 file 'app/controllers/application_controller.rb', %q{
 class ApplicationController < ActionController::Base
@@ -81,4 +82,4 @@ git :add    => '.'
 git :commit => "-a -m 'added core engine plugin, should be good to go'"
 
 rake 'db:migrate'
-
+rake 'db:seed'
