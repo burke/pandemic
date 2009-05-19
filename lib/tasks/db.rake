@@ -1,9 +1,12 @@
 namespace :db do
   desc 'Load the seed data from db/seeds.rb'
   task :seed => :environment do
-    seed_file = File.join(Rails.root, 'db', 'seeds.rb')
-    load(seed_file) if File.exist?(seed_file)
+    Dir["#{Rails.root}{/vendor/plugins/*/,}/db/seeds/*.rb"].each do |seed_file|
+      if File.exist?(seed_file)
+        seed_file[/\/db\/seeds\/(.+).rb/]
+        puts "[seeding] #{$1.humanize}"
+        load(seed_file)
+      end
+    end
   end
 end
-
-
