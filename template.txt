@@ -43,20 +43,25 @@ git :commit => "-a -m 'added gems.'"
 
 run 'haml --rails .' 
 
-plugin 'action_mailer_tls', :git => 'git://github.com/stefanpenner/action_mailer_tls.git'
-plugin 'state_machine',     :git => 'git://github.com/pluginaweek/state_machine.git'
-plugin 'hoptoad_notifier',  :git => 'git://github.com/thoughtbot/hoptoad_notifier.git'
+#plugin 'action_mailer_tls', :git => 'git://github.com/stefanpenner/action_mailer_tls.git'
+#plugin 'state_machine',     :git => 'git://github.com/pluginaweek/state_machine.git'
+#plugin 'hoptoad_notifier',  :git => 'git://github.com/thoughtbot/hoptoad_notifier.git'
+
+git :submodule => 'add git://github.com/stefanpenner/action_mailer_tls.git vendor/plugins/action_mailer_tls'
+git :submodule => 'add git://github.com/pluginaweek/state_machine.git vendor/plugins/state_machine'
+git :submodule => 'add git://github.com/thoughtbot/hoptoad_notifier.git vendor/plugins/hoptoad_notifier'
+git :submodule => 'add git@github.com:53cr/core.git vendor/plugins/core vendor/plugins/core'
+
+git :submodule => 'init'
+git :submodule => 'update'
 
 git :add    => '.'
 git :commit => "-a -m 'added plugins.'"
-
-git :clone => 'git@github.com:53cr/core.git vendor/plugins/core'
 
 run 'rsync -ruv vendor/plugins/core/db/migrate db'
 run 'rsync -ruv vendor/plugins/core/public .'
 run 'rsync -ruv vendor/plugins/core/config/initializers config'
 run 'rsync -ruv vendor/plugins/core/app/views/user_mailer app/views'
-run 'rsync -ruv vendor/plugins/core/db/seed.rb db'
 
 file 'app/controllers/application_controller.rb', %q{
 class ApplicationController < ActionController::Base
@@ -78,7 +83,7 @@ environment(%q{
   config.active_record.observers = :user_observer
 })
 
-router 'Chromium53::Routes.add_to(map)'
+route 'Chromium53::Routes.add_to(map)'
 
 
 git :add    => '.'
