@@ -30,9 +30,8 @@ blockquote, q {
   font-family: inherit;
   vertical-align: baseline;
   quotes: "" ""; }
-  blockquote:before,
-  blockquote:after,   q:before,
-  q:after {
+  blockquote:before, q:before,
+  blockquote:after, q:after {
     content: ""; }
 
 th, td, caption {
@@ -66,7 +65,7 @@ a img {
 
 body body {
   line-height: 1.5;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
   color: #333333;
   font-size: 75%; }
 body h1 {
@@ -93,8 +92,7 @@ body h4 {
   color: #222222;
   font-size: 1.2em;
   line-height: 1.25;
-  margin-bottom: 1.25em;
-  height: 1.25em; }
+  margin-bottom: 1.25em; }
 body h5 {
   font-weight: normal;
   color: #222222;
@@ -110,13 +108,16 @@ body h2 img, body h3 img, body h4 img, body h5 img, body h6 img {
   margin: 0; }
 body p {
   margin: 0 0 1.5em; }
-  body p img {
+  body p img.left {
+    display: inline;
     float: left;
     margin: 1.5em 1.5em 1.5em 0;
     padding: 0; }
-    body p img.right {
-      float: right;
-      margin: 1.5em 0 1.5em 1.5em; }
+  body p img.right {
+    display: inline;
+    float: right;
+    margin: 1.5em 0 1.5em 1.5em;
+    padding: 0; }
 body a {
   text-decoration: underline;
   color: #000099; }
@@ -148,12 +149,10 @@ body address {
   font-style: italic; }
 body del {
   color: #666; }
-body pre, body code {
+body pre {
   margin: 1.5em 0;
-  white-space: pre;
-  font: 1em 'andale mono', 'lucida console', monospace;
-  line-height: 1.5; }
-body tt {
+  white-space: pre; }
+body pre, body code, body tt {
   font: 1em 'andale mono', 'lucida console', monospace;
   line-height: 1.5; }
 body li ul, body li ol {
@@ -174,13 +173,13 @@ body table {
   margin-bottom: 1.4em;
   width: 100%; }
 body th {
-  font-weight: bold;
-  background: #C3D9FF;
-  padding: 4px 10px 4px 5px; }
-body td {
+  font-weight: bold; }
+body thead th {
+  background: #c3d9ff; }
+body th, body td, body caption {
   padding: 4px 10px 4px 5px; }
 body tr.even td {
-  background: #E5ECF9; }
+  background: #e5ecf9; }
 body tfoot {
   font-style: italic; }
 body caption {
@@ -275,8 +274,7 @@ body {
       margin: 0;
       padding: 0;
       border: 0;
-      overflow: auto;
-      overflow: -moz-scrollbars-none;
+      overflow: hidden;
       display: inline-block; }
       body #header ul {
         display: block; }
@@ -284,6 +282,7 @@ body {
         list-style-type: none;
         margin-left: 0px;
         white-space: nowrap;
+        display: inline;
         float: left;
         padding-left: 4px;
         padding-right: 4px; }

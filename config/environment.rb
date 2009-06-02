@@ -11,6 +11,9 @@ Rails::Initializer.run do |config|
   config.gem 'stefanpenner-my_scaffold', :lib => false,          :source => "http://gems.github.com"
   config.gem 'iridesco-time-warp',       :lib => 'time_warp',    :source => "http://gems.github.com"
   config.gem 'authlogic'
+  config.gem 'haml'
+  config.gem 'ruby-prof'
+
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers/
                            #{RAILS_ROOT}/app/observers/
                            #{RAILS_ROOT}/app/mailers/)

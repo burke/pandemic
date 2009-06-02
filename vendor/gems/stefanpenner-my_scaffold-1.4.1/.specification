@@ -1,0 +1,88 @@
+--- !ruby/object:Gem::Specification 
+name: stefanpenner-my_scaffold
+version: !ruby/object:Gem::Version 
+  version: 1.4.1
+platform: ruby
+authors: 
+- Stefan Penner
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-02-15 00:00:00 -06:00
+default_executable: 
+dependencies: []
+
+description: TODO
+email: stefan.penner@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- VERSION.yml
+- generators/my_model
+- generators/my_model/my_model_generator.rb
+- generators/my_model/templates
+- generators/my_model/templates/factory.rb
+- generators/my_model/templates/fixtures.yml
+- generators/my_model/templates/migration.rb
+- generators/my_model/templates/model.rb
+- generators/my_model/templates/unit_test.rb
+- generators/my_model/USAGE
+- generators/my_scaffold
+- generators/my_scaffold/my_scaffold_generator.rb
+- generators/my_scaffold/templates
+- generators/my_scaffold/templates/blueprint
+- generators/my_scaffold/templates/blueprint/ie.css
+- generators/my_scaffold/templates/blueprint/print.css
+- generators/my_scaffold/templates/blueprint/screen.css
+- generators/my_scaffold/templates/controller.rb
+- generators/my_scaffold/templates/functional_test
+- generators/my_scaffold/templates/functional_test/basic.rb
+- generators/my_scaffold/templates/haml
+- generators/my_scaffold/templates/haml/_form.html.haml
+- generators/my_scaffold/templates/haml/edit.html.haml
+- generators/my_scaffold/templates/haml/index.html.haml
+- generators/my_scaffold/templates/haml/layout.html.haml
+- generators/my_scaffold/templates/haml/new.html.haml
+- generators/my_scaffold/templates/haml/show.html.haml
+- generators/my_scaffold/templates/helper.rb
+- generators/my_scaffold/USAGE
+- lib/my_scaffold.rb
+- test/environment.rb
+- test/my_scaffold_test.rb
+- test/test_helper.rb
+has_rdoc: true
+homepage: http://github.com/stefanpenner/my_scaffold
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --inline-source
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.2
+signing_key: 
+specification_version: 2
+summary: TODO
+test_files: []
+
