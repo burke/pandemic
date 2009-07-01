@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
     else
       errors = @user_session.errors[:base]
       flash[:error] = errors if errors 
-      render :action => :new
+      render :action => :new, :status => 401
     end
   end
   

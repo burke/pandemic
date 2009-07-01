@@ -1,20 +1,14 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
-  should_require_attributes :email, :password
-  should_have_many :user_roles
-  should_have_many :roles, :through => :user_roles
   
-  should "require password validation on create" do
-    user = Factory.build(:user, :password => 'blah', :password_confirmation => 'boogidy')
-    assert !user.save
-    assert_match(/confirmation/i, user.errors.on(:password))
-  end
+  should_require_attributes :email, :message => "should look like an email address."
+  should_require_attributes :password, :message => /is too short/ 
   
   should "create a crypted_password on save" do
-    assert_not_nil Factory(:user, :crypted_password => nil).crypted_password
+    assert_not_nil Factory(:user).crypted_password
   end
-  
+=begin
   context 'updating a password' do
     setup do
       @user = Factory(:user)
@@ -179,7 +173,7 @@ class UserTest < Test::Unit::TestCase
       end
     end
   end
-  
+=end 
   context "A user" do
     setup do
       @user = Factory :user

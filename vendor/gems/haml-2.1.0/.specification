@@ -10,7 +10,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-06-01 00:00:00 -05:00
+date: 2009-05-25 00:00:00 -05:00
 default_executable: 
 dependencies: []
 
@@ -52,7 +52,6 @@ files:
 - lib/sass/engine.rb
 - lib/sass/environment.rb
 - lib/sass/error.rb
-- lib/sass/files.rb
 - lib/sass/plugin/merb.rb
 - lib/sass/plugin/rails.rb
 - lib/sass/plugin.rb
@@ -199,7 +198,6 @@ files:
 - test/sass/templates/subdir/subdir.sass
 - test/sass/templates/units.sass
 - test/test_helper.rb
-- extra/edge_gem_watch.rb
 - extra/haml-mode.el
 - extra/sass-mode.el
 - Rakefile

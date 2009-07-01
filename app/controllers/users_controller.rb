@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       flash[:success] = "You will receive an email within the next few minutes. It contains instructions for you to confirm your account."
       redirect_to login_url
     else
+      flash[:error] = "User failed to be created"
       render :action => "new"
     end
   end
