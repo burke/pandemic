@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  owner_id: 1
+  duration: 1
+  date: 2009-08-13
+
+two:
+  owner_id: 1
+  duration: 1
+  date: 2009-08-13

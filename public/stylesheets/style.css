@@ -1,0 +1,61 @@
+body {
+  font-family: helvetica, arial, sans;
+  font-size: 12px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.clear {
+  clear: both;
+}
+
+ul.facelist, #result_list {
+  margin: -4px auto auto 120px !important;
+}
+
+#for_image {
+  padding: 0 4px 0 4px;
+}
+
+#i_met_with_image {
+  padding: 0 4px 0 0;
+  float: left;
+}
+
+form {
+  background: url(/images/i_met_with.png) top left no-repeat;
+}
+
+#mainform label {
+  line-height: 24px;
+  font-size: 18px;
+}
+
+#wrapper {
+  width: 720px;
+  text-align: left;
+  margin: 100px auto;
+}
+
+#history {
+  font-size: 14px;
+  color: #999;
+  margin-top: 30px;
+}
+
+.name {
+  color: #000;
+}
+
+.time {
+  color: #000;
+}
+
+input.time {
+  border: 1px solid black;
+  width: 1em;
+  height: 1em;
+  background: white;
+}
+
+

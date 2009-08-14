@@ -1,0 +1,30 @@
+#wrapper
+
+  %form{ :action => "/", :method => :post, :id => "mainform" }
+    %ul.facelist{:style => "float:left"}
+      %li{:class=>"token-input"}
+        %input{:class=>"maininput", :id=>"list_user",:type=>"text", :name => "list_user"}
+    %label{:for => "time", :style => "float: left"}
+      %img{:src => "/images/for.png", :id=>"for_image"}
+    %select{:name=>"time", :id => "time"}
+      %option{:value => ""}---
+      %option{:value => "10m"}10m
+      %option{:value => "30m"}30m
+      %option{:value => "1h"}1h
+      %option{:value => "2h"}2h
+      %option{:value => "4h"}4h
+      %option{:value => "8h"}8h
+    %input{:type=>"submit",:value=>"Submit"}
+    #result_list{:style=>'display:none'}
+   
+  #history.clear
+    .result
+      I met with <span class="name">Bob McLeod</span> for <span class="time">1 hour</span>. (X)
+    .result
+      I met with <span class="name">Marcia Friesen</span> for <span class="time">1 hour</span>. (X)
+
+.overlay#overlay
+  %image{:src => "/images/how_are_you_feeling.png"}/
+  %br/
+  %image{:id => 'smiley1', :src => "/images/healthy.png",:style=>"float:left"}/
+  %image{:id => 'smiley2', :src => "/images/unhealthy.png"}/

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new(params[:user])
   end
-  
+
   def confirm
     @user = User.find_by_perishable_token(params[:perishable_token])
     if @user
