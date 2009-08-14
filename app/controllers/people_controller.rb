@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
       join("\n")
 
     respond_to do |format|
-      format.js { render :text => @suggestions[params[:q]] }
+      format.json { render :text => @suggestions[params[:q]] }
     end
   end
 end

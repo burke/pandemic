@@ -13,7 +13,7 @@ $(document).ready(function() {
     $("#smiley1").stop().fadeTo(500,1.0);
   });
 
-  $("#list_user").autocomplete("/suggest.js", properties = {
+  $("#list_user").autocomplete("/suggest.json", properties = {
 		matchContains: true,
 		minChars: 2,
 		selectFirst: false,
@@ -39,7 +39,7 @@ $(document).ready(function() {
   },1000);
 
   $("form#mainform").submit(function(ev) {
-    $.post("/meetings.js", {
+    $.post("/meetings.json", {
       "name": $('input[name=to_users]').val(),
       "time": $('#time').val()
     }, function(data) {

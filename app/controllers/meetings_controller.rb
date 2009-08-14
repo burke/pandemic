@@ -58,11 +58,11 @@ class MeetingsController < ApplicationController
         flash[:notice] = 'Meeting was successfully created.'
         format.html { redirect_to(@meeting) }
         format.xml  { render :xml => @meeting, :status => :created, :location => @meeting }
-        format.js   { render :text => {"name" => @meeting.people.map(&:name).join(", "), "time_str" => @meeting.time_str}.to_json }
+        format.json   { render :text => {"name" => @meeting.people.map(&:name).join(", "), "time_str" => @meeting.time_str}.to_json }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @meeting.errors, :status => :unprocessable_entity }
-        format.js   { render :text => {"error" => "could not save"}.to_json }
+        format.json   { render :text => {"error" => "could not save"}.to_json }
       end
     end
   end
