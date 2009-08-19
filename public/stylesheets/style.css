@@ -13,26 +13,22 @@ ul.facelist, #result_list {
   margin: -4px auto auto 120px !important;
 }
 
-#for_image {
-  padding: 0 4px 0 4px;
-}
-
-#i_met_with_image {
-  padding: 0 4px 0 0;
-  float: left;
-}
-
-form {
-  background: url(/images/i_met_with.png) top left no-repeat;
-}
-
 #mainform label {
   line-height: 24px;
   font-size: 18px;
 }
 
+#for_image {
+   position: relative;
+   top: 4px;
+}
+
+#mainform {
+   background: url(/images/i_met_with.png) 4px left no-repeat;
+}
+
 #wrapper {
-  width: 720px;
+  width: 770px;
   text-align: left;
   margin: 100px auto;
 }
@@ -59,3 +55,13 @@ input.time {
 }
 
 
+.timeselect {
+   border: 1px solid #999999;
+   width: 30px;
+   height: 24px;
+   line-height: 24px;
+   margin-left: 2px;
+   float: left;
+   text-align: center;
+   cursor: pointer;
+}

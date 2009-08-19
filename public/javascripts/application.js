@@ -6,11 +6,30 @@ $(document).ready(function() {
     $("#smiley2").stop().fadeTo(500,0.4);
   }).mouseout(function(){
     $("#smiley2").stop().fadeTo(500,1.0);
+  }).click(function() {
+    $("#smiley2").fadeTo(500,0, function() {
+      ol_api.close();
+    });
   });
+
   $("#smiley2").mouseover(function(){
     $("#smiley1").stop().fadeTo(500,0.3);
   }).mouseout(function(){
     $("#smiley1").stop().fadeTo(500,1.0);
+  }).click(function() {
+    $("#overform1").fadeOut(500,function() {
+      $("#overform2").fadeIn(500);
+    });
+  });
+
+  $(".timeselect").click(function() {
+    $(this).effect("highlight",{},2000);
+    $("input#time").val($(this).attr('id').substring(2));
+    if ($("input[name=to_users]").val().length > 0) {
+      $("ul.facelist").effect("highlight",{},2000);
+      $(".maininput").effect("highlight",{},2000);
+      $("#mainform").submit();
+    }
   });
 
   $("#list_user").autocomplete("/suggest.json", properties = {
@@ -19,10 +38,6 @@ $(document).ready(function() {
 		selectFirst: false,
 		intro_text: "Type Name",
 		no_result: "No Names"
-	});
-	$("#submit").click(function(){
-		var data = $("#to_users").val();
-		alert(data);
 	});
 
   var ol_api = $("#overlay").overlay({
@@ -34,9 +49,7 @@ $(document).ready(function() {
     }
   });
 
-  setTimeout(function(){
-    ol_api.load();
-  },1000);
+  ol_api.load();
 
   $("form#mainform").submit(function(ev) {
     $.post("/meetings.json", {
