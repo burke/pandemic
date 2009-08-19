@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("button").overlay();
 
   $("#smiley1").mouseover(function(){
-    $("#smiley2").stop().fadeTo(500,0.4);
+    $("#smiley2").stop().fadeTo(500,0.25);
   }).mouseout(function(){
     $("#smiley2").stop().fadeTo(500,1.0);
   }).click(function() {
@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
   $("#smiley2").mouseover(function(){
-    $("#smiley1").stop().fadeTo(500,0.3);
+    $("#smiley1").stop().fadeTo(500,0.25);
   }).mouseout(function(){
     $("#smiley1").stop().fadeTo(500,1.0);
   }).click(function() {
