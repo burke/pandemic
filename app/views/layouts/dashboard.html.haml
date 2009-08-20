@@ -24,6 +24,8 @@
           %image{:id => 'smiley1', :src => "/images/healthy.png",:style=>"float:left"}/
           %image{:id => 'smiley2', :src => "/images/unhealthy.png"}/
         #overform2{:style=>'display:none'}
-          %form{:action => '/wellness.json', :method => :post}
-            %textarea{:style => "width:357px;height:210px;"}
-            %input{:type => "submit", :value => "Submit"}
+          %form{:action => '/status.json', :method => :post, :id => 'status'}
+            %textarea{:style => "width:357px;height:210px;", :name => "symptoms", :value => "Describe your symptoms..."}
+            %input{:type => "hidden", :value => "true", :name => 'feeling_sick'}
+            %input{:type => "submit", :value => "Submit"}              
+

@@ -7,6 +7,10 @@ $(document).ready(function() {
   }).mouseout(function(){
     $("#smiley2").stop().fadeTo(500,1.0);
   }).click(function() {
+    $("input[name=feeling_sick]").val("false");
+
+    $("form#status").submit();
+
     $("#smiley2").fadeTo(500,0, function() {
       ol_api.close();
     });
@@ -51,6 +55,10 @@ $(document).ready(function() {
 
   ol_api.load();
 
+  setTimeout(function() {
+    $(".success").fadeOut();
+  }, 8000);
+
   $("form#mainform").submit(function(ev) {
     $.post("/meetings.json", {
       "name": $('input[name=to_users]').val(),
@@ -65,11 +73,20 @@ $(document).ready(function() {
     }, "json");
 
     $("li.token").remove();
-    $("input[name=to_users]").val('');
+    $("#mainoinput[name=to_users]").val('');
     $("input[name=time]").val('');
     $("input[name=list_user]").val('');
 
     $('input[name=list_user]').focus();
+
+    ev.preventDefault();
+  });
+
+  $("form#status").submit(function(ev) {
+    $.post("/statuses.json", {
+      "feeling_sick": $('input[name=feeling_sick]').val(),
+      "symptoms": $("input[name=symptoms]").val()
+    });
 
     ev.preventDefault();
   });

@@ -211,7 +211,10 @@ body #errorExplanation ul li {
   font-size: 12px;
   list-style: square; }
 body .error, body .notice, body .success {
-  padding: .2em;
+  position: absolute;
+  top: 50px;
+  width: 760px;
+  padding: 3px;
   margin-bottom: 1em;
   margin-top: 1em;
   border: 2px solid #ddd;
@@ -239,15 +242,11 @@ body {
   font-size: 75%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   body .container {
-    min-width: 600px;
-    max-width: 1024px;
-    width: 75%;
+    width: 770px;
     margin: 0 auto;
     padding: 10px; }
   body #header {
-    min-width: 600px;
-    max-width: 1024px;
-    width: 75%;
+    width: 770px;
     margin: 0 auto;
     height: 60px; }
     body #header h1 {

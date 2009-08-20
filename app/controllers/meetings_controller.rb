@@ -60,8 +60,10 @@ class MeetingsController < ApplicationController
     
     respond_to do |format|
       if @meeting.save
-        flash[:notice] = 'Meeting was successfully created.'
-        format.html { redirect_to(@meeting) }
+        format.html do
+          flash[:notice] = 'Meeting was successfully created.'
+          redirect_to(@meeting)
+        end
         format.xml  { render :xml => @meeting, :status => :created, :location => @meeting }
         format.json   { render :text => {"name" => @meeting.people.map(&:name).join(", "), "time_str" => @meeting.time_str}.to_json }
       else

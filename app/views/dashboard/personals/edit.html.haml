@@ -1,4 +1,6 @@
 %h1 Personal Information
+%p 
+  = link_to 'Change Password', password_url
 - form_for(:user,:url => dashboard_personal_path, :html => { :method => :put }) do |form| 
   .text_field
     = form.label :email
