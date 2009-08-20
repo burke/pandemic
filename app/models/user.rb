@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   belongs_to :person
   has_many :meetings
+  has_many :statuses
   
   acts_as_authentic do |config|
     config.perishable_token_valid_for = 1.hour

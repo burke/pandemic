@@ -86,7 +86,7 @@ $(document).ready(function() {
     $.post("/statuses.json", {
       "feeling_sick": $('input[name=feeling_sick]').val(),
       "symptoms": $("input[name=symptoms]").val()
-    });
+    },function(){ol_api.close();});
 
     ev.preventDefault();
   });

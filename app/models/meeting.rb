@@ -6,6 +6,10 @@ class Meeting < ActiveRecord::Base
   has_many :people, :through => :meeting_people
 
   validates_presence_of :duration, :people
+
+  def all_people
+    return [self.user.person, *self.people]
+  end
   
   def time_str
     if (duration % 3600).zero?
