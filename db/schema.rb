@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090814044612) do
+ActiveRecord::Schema.define(:version => 20090820202136) do
 
   create_table "meeting_people", :force => true do |t|
     t.integer  "meeting_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20090814044612) do
   end
 
   create_table "meetings", :force => true do |t|
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.integer  "duration"
     t.date     "date"
     t.datetime "created_at"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20090814044612) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.string   "name"
+    t.integer  "person_id"
   end
 
 end

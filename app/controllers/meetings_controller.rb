@@ -1,4 +1,7 @@
 class MeetingsController < ApplicationController
+
+  before_filter :require_user
+
   # GET /meetings
   # GET /meetings.xml
   def index
@@ -42,6 +45,8 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(params[:meeting])
 
+    @meeting.user = @current_user
+    
     if u = params[:name]
       u.sub(/,$/,'').split(',').each{|a| @meeting.people << Person.find(a)}
     end

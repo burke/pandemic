@@ -24,14 +24,3 @@
       I met with <span class="name">Bob McLeod</span> for <span class="time">1 hour</span>. (X)
     .result
       I met with <span class="name">Marcia Friesen</span> for <span class="time">1 hour</span>. (X)
-
-.overlay#overlay
-  %image{:src => "/images/how_are_you_feeling.png"}/
-  %br/
-  #overform1
-    %image{:id => 'smiley1', :src => "/images/healthy.png",:style=>"float:left"}/
-    %image{:id => 'smiley2', :src => "/images/unhealthy.png"}/
-  #overform2{:style=>'display:none'}
-    %form{:action => '/wellness.json', :method => :post}
-      %textarea{:style => "width:357px;height:210px;"}
-      %input{:type => "submit", :value => "Submit"}

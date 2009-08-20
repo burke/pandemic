@@ -2,9 +2,11 @@
 %html{ :lang => "en" }
   %head
     %meta{ :content => "text/html charset=utf-8", "http-equiv" => "Content-Type" }
-    %title= APP[:name]
+    %title Pandemic ROI Prototype
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    = stylesheet_link_tag 'style.css', 'facelist.css', 'overlay.css'
+    = javascript_include_tag 'jquery-1.3.2.min.js', 'jquery.autocomplete.js', 'jquery.facelist.js', 'jquery.tools.min.js', 'application.js', 'jquery-ui-1.7.2.custom.min.js'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
   %body
@@ -13,8 +15,15 @@
       .container
         - flash.each do |key, value|
           %div{:class => key}= h(value)
-        #menu= render :partial => '/dashboard/menu' 
         = yield  
         #footer= render :partial => '/shared/footer'
-            
-
+      .overlay#overlay
+        %image{:src => "/images/how_are_you_feeling.png"}/
+        %br/
+        #overform1
+          %image{:id => 'smiley1', :src => "/images/healthy.png",:style=>"float:left"}/
+          %image{:id => 'smiley2', :src => "/images/unhealthy.png"}/
+        #overform2{:style=>'display:none'}
+          %form{:action => '/wellness.json', :method => :post}
+            %textarea{:style => "width:357px;height:210px;"}
+            %input{:type => "submit", :value => "Submit"}

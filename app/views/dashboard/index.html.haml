@@ -1,3 +1,37 @@
-%h1 Dashboard
-= @user.email
-  
+#wrapper
+
+  %form{ :action => "/", :method => :post, :id => "mainform" }
+    %div{:style => "float: right;"}
+      %input{:type=>"hidden", :name=>"time", :id => "time"}
+      .timeselect#ts10m 10m
+      .timeselect#ts30m 30m
+      .timeselect#ts1h 1h
+      .timeselect#ts2h 2h
+      .timeselect#ts4h 4h
+      .timeselect#ts8h 8h
+    %label{:for => "time", :style => "float: right"}
+      %img{:src => "/images/for.png", :id=>"for_image"}
+    %ul.facelist
+      %li{:class=>"token-input"}
+        %input{:class=>"maininput", :id=>"list_user",:type=>"text", :name => "list_user"}
+
+
+    %br.clear/
+    #result_list{:style=>'display:none'}
+   
+  #history.clear
+    .result
+      I met with <span class="name">Bob McLeod</span> for <span class="time">1 hour</span>. (X)
+    .result
+      I met with <span class="name">Marcia Friesen</span> for <span class="time">1 hour</span>. (X)
+
+.overlay#overlay
+  %image{:src => "/images/how_are_you_feeling.png"}/
+  %br/
+  #overform1
+    %image{:id => 'smiley1', :src => "/images/healthy.png",:style=>"float:left"}/
+    %image{:id => 'smiley2', :src => "/images/unhealthy.png"}/
+  #overform2{:style=>'display:none'}
+    %form{:action => '/wellness.json', :method => :post}
+      %textarea{:style => "width:357px;height:210px;"}
+      %input{:type => "submit", :value => "Submit"}

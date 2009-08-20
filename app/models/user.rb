@@ -1,10 +1,31 @@
 class User < ActiveRecord::Base
-  attr_protected :state
+  attr_protected :state, :person
 
+  belongs_to :person
+  has_many :meetings
+  
   acts_as_authentic do |config|
     config.perishable_token_valid_for = 1.hour
   end
 
+  def before_create
+    p = Person.find_by_email(self.email)
+
+    if p.nil? # This email isn't on the org list.
+      self.errors.add :email, "Please use your organization email address."
+      return false
+    end
+    
+    if p.user # This email has already been claimed.
+      self.errors.add :email, "has already been taken"
+      return false
+    end
+
+    self.person = p
+
+    return true
+  end
+  
   # simple state machine to handle user confirmation
   state_machine :initial => :unconfirmed do
     event :confirm! do

@@ -6,7 +6,7 @@ class Meeting < ActiveRecord::Base
   has_many :people, :through => :meeting_people
 
   validates_presence_of :duration, :people
-
+  
   def time_str
     if (duration % 3600).zero?
       return "#{duration/3600} hours"

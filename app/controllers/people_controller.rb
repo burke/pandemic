@@ -1,4 +1,7 @@
 class PeopleController < ApplicationController
+
+  before_filter :require_user
+
   def suggest
     @suggestions ||= {}
     @suggestions[params[:q]] ||=

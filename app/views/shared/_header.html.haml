@@ -1,4 +1,8 @@
-%h1= APP[:name]
+-#%h1 Pandemic ROI
 %ul
-  %li= link_to 'Home', root_url
-  %li= link_to 'Dashboard', dashboard_url
+  %li= link_to 'Home', dashboard_url
+  -if current_user.is_a?(Administrator)
+    %li= link_to 'Admin', admin_url
+  %li= link_to 'Edit Personal Information', dashboard_personal_url
+  %li= link_to 'Change Password', password_url
+  %li= link_to 'Logout', logout_url
