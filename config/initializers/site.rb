@@ -1,4 +1,4 @@
 APP = { :name => "Base App",
-        :host => "localhost:3000" }
+        :host => "pandemic.burkelibbey.org" }
 
 

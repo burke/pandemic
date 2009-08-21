@@ -1,5 +1,5 @@
-NUM_PEOPLE = 300
-UNIT_SIZE = 4
+NUM_PEOPLE = 1800
+UNIT_SIZE = 10
 
 
 
@@ -21,11 +21,11 @@ class Person
   def simulate
     loop do
       case rand*100
-      when 0..25
+      when 0..13
         return
-      when 26..75
+      when 14..81
         docontact(random_from_workgroup, random_duration)
-      when 76..100
+      when 82..100
         docontact(random_from_world, random_duration)
       end
     end
