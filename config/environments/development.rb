@@ -17,4 +17,4 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 
-HOST = "localhost"
+HOST = "pandemic.burkelibbey.org"
