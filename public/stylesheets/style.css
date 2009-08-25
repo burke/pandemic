@@ -41,17 +41,17 @@ ul.facelist, #result_list {
 
 .name {
    color: #000;
-   background-color: #9ff;
+   background-color: #7f7;
 }
 
 .time {
    color: #000;
-   background-color: #f9f;
+   background-color: #ff7;
 }
 
 .location {
    color: #000;
-   background-color: #ff9;
+   background-color: #7ff;
 }
 
 input.time {
