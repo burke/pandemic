@@ -1,0 +1,18 @@
+<%- the_id = "meeting-#{meeting.id}" %>
+<div class="result unevented" id="<%=h the_id%>">
+I met with <%=
+
+meeting.
+people.
+map(&:name).
+map{|n|"<span class=\"name\">#{n}</span>"}.
+join(', ')
+
+%> at <span class="location"><%=
+"Neverland Ranch"
+%></span> for <span class="time"><%=
+h meeting.time_str 
+%></span>. <span class="x">X</span>
+</div>
+<script type="text/javascript">//<![CDATA[
+$(document).trigger("meeting.insert"); //]]></script>

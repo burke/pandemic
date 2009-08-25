@@ -1,7 +1,8 @@
-NUM_PEOPLE = 1800
-UNIT_SIZE = 10
+require 'rubygems'
+require 'activesupport'
 
-
+NUM_PEOPLE = 300
+UNIT_SIZE = 12
 
 class Person
 
@@ -21,11 +22,11 @@ class Person
   def simulate
     loop do
       case rand*100
-      when 0..13
+      when 0..25
         return
-      when 14..81
+      when 14..85
         docontact(random_from_workgroup, random_duration)
-      when 82..100
+      when 86..100
         docontact(random_from_world, random_duration)
       end
     end
@@ -50,6 +51,80 @@ class Person
   
 end
 
+module Graph
+  
+  class Node
+    attr_accessor :w
+    attr_reader :edges, :name
+    cattr_reader :rall
+    @@rall = []
+    def initialize(name)
+      @@rall << self
+      @name = name
+    end
+
+    def to_s
+      "{node [color=\"#{color}\"] h#{name}}"
+    end
+
+    def self.color_all
+      @@rall.each do |node|
+        x = Edge.rall.select{|e|e.src == node.name || e.dest == node.name}
+        fn = (x.size)**2
+        fd = ((x.map(&:dur).inject(&:+)||0) / 1800.0)
+        node.w = fn*fd
+        @@w_max ||= node.w
+        @@w_max = node.w if node.w > @@w_max
+      end
+    end
+    
+    def color
+      unless defined?(@@w_max)
+        Node.color_all
+      end
+      ratio = w / @@w_max.to_f
+      dec = 256-(ratio * 255)
+      hex = dec.to_i.to_s(16)
+      s=hex*3
+      if s.size==3
+        s *= 2
+      end
+      return "##{s}"
+    end
+  end
+
+  class Edge
+    attr_reader :src, :dest, :dur
+    cattr_reader :rall
+    @@rall = []
+    def initialize(src,dest,dur)
+      @@rall << self
+      @src = src
+      @dest = dest
+      @dur = dur
+    end
+    def to_s
+      "{edge [color=\"#{color}\"] h#{@src} -- h#{@dest} }"
+    end
+
+    def color
+      ratio = @dur / (3600*8.to_f)
+      dec = 256-(ratio * 255)
+      hex = dec.to_i.to_s(16)
+      s=hex*3
+      if s.size==3
+        s *= 2
+      end
+      return "##{s}"
+    end
+
+  end
+
+  
+
+  
+end
+
 
 class Simulation
   def initialize
@@ -67,26 +142,21 @@ class Simulation
     self
   end
 
-  def color(duration)
-    ratio = duration / (3600*8.to_f)
-    dec = ratio * 255
-    hex = dec.to_i.to_s(16)
-    s="#{hex}#{hex}#{hex}"
-    if s.size==3
-      s *= 2
-    end
-    return "##{s}"
-  end
-  
-  def printdot
-    puts "graph G {"
+  def preparegraph
     $people.each do |person|
+      Graph::Node.new(person.pid)
       x = {}
       person.contact.each{|c|x[c[0].pid] = c[1]}
       x.each do |p, d|
-        puts "  {edge [color=\"#{color(d)}\"] h#{person.pid} -- h#{p} }"
+        Graph::Edge.new(person.pid, p, d)
       end
     end
+    self
+  end
+  def printdot
+    puts "graph G {"
+    puts Graph::Node.rall.map(&:to_s)
+    puts Graph::Edge.rall.map(&:to_s)
     puts "}"
     self
   end
@@ -95,5 +165,5 @@ end
 
 
 if __FILE__ == $0
-  Simulation.new.run.printdot
+  Simulation.new.run.preparegraph.printdot
 end

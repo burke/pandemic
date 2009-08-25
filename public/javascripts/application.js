@@ -1,5 +1,30 @@
 $(document).ready(function() {
 
+  $(document).bind("meeting.insert", function(e) {
+    $(".result.unevented .x")
+      .click(function(ev){
+        var that = this;
+        $.ajax({
+          url: "/meetings/"+$(that).closest(".result").attr('id').substring(8),
+          type: 'POST',
+          dataType: 'script',
+          data: {
+            '_method': 'delete'
+//            'authenticity_token': AUTH_TOKEN
+          },
+          success: function(msg) {
+            $(that).closest(".result").hide('slow',function(){
+              $(this).remove();
+            });
+          }
+        });
+        return false;
+      });
+    $(".result.unevented").removeClass("unevented");
+  });
+
+  $(document).trigger("meeting.insert");
+
   $("button").overlay();
 
   $("#smiley1").mouseover(function(){
@@ -60,20 +85,18 @@ $(document).ready(function() {
   }, 8000);
 
   $("form#mainform").submit(function(ev) {
-    $.post("/meetings.json", {
+    $.post("/meetings.html", {
       "name": $('input[name=to_users]').val(),
       "time": $('#time').val()
     }, function(data) {
 
-      var newResult = "<div class='result'>I met with <span class='name'>"+data['name']+"</span> for <span class='time'>"+data['time_str']+"</span>. (X)</div>";
-
-      $("#history").prepend(newResult);
+      $("#history").prepend(data);
       $("#history .result:first").hide().show("slow");
 
-    }, "json");
+    });
 
     $("li.token").remove();
-    $("#mainoinput[name=to_users]").val('');
+    $("input[name=to_users]").val('');
     $("input[name=time]").val('');
     $("input[name=list_user]").val('');
 

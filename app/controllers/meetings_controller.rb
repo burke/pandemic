@@ -19,7 +19,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :partial => @meeting }
       format.xml  { render :xml => @meeting }
     end
   end
@@ -61,8 +61,8 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       if @meeting.save
         format.html do
-          flash[:notice] = 'Meeting was successfully created.'
-          redirect_to(@meeting)
+          # redirect_to(@meeting)
+          render :partial => @meeting
         end
         format.xml  { render :xml => @meeting, :status => :created, :location => @meeting }
         format.json   { render :text => {"name" => @meeting.people.map(&:name).join(", "), "time_str" => @meeting.time_str}.to_json }
@@ -76,6 +76,7 @@ class MeetingsController < ApplicationController
 
   # PUT /meetings/1
   # PUT /meetings/1.xml
+=begin
   def update
     @meeting = Meeting.find(params[:id])
 
@@ -90,7 +91,8 @@ class MeetingsController < ApplicationController
       end
     end
   end
-
+=end
+  
   # DELETE /meetings/1
   # DELETE /meetings/1.xml
   def destroy

@@ -20,8 +20,5 @@
     #result_list{:style=>'display:none'}
    
   #history.clear
-    .result
-      I met with <span class="name">Bob McLeod</span> for <span class="time">1 hour</span>. (X)
-    .result
-      I met with <span class="name">Marcia Friesen</span> for <span class="time">1 hour</span>. (X)
-
+    - @meetings.each do |meeting|
+      = render :partial => meeting

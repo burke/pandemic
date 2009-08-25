@@ -13,7 +13,8 @@ class Meeting < ActiveRecord::Base
   
   def time_str
     if (duration % 3600).zero?
-      return "#{duration/3600} hours"
+      dur = duration/3600
+      return "#{dur} hour#{dur==1 ? '' : 's'}"
     else
       return "#{duration/60} minutes"
     end

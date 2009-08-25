@@ -35,16 +35,23 @@ ul.facelist, #result_list {
 
 #history {
   font-size: 14px;
-  color: #999;
+  color: #666;
   margin-top: 30px;
 }
 
 .name {
-  color: #000;
+   color: #000;
+   background-color: #9ff;
 }
 
 .time {
-  color: #000;
+   color: #000;
+   background-color: #f9f;
+}
+
+.location {
+   color: #000;
+   background-color: #ff9;
 }
 
 input.time {
@@ -65,3 +72,20 @@ input.time {
    text-align: center;
    cursor: pointer;
 }
+
+.result {
+   line-height: 18px;
+   font-size: 12px;
+}
+
+.result .x {
+   background-color: #ccc;
+   color: #fff;
+   padding: 0 2px 0 2px;
+   cursor: pointer;
+}
+
+.result .x:hover {
+   background-color: #c00;
+}
+
