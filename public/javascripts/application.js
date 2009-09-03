@@ -25,27 +25,36 @@ $(document).ready(function() {
 
   $(document).trigger("meeting.insert");
 
-  $("button").overlay();
-
+  // FUTURE REFACTORING CANDIDATE
   $("#smiley1").mouseover(function(){
-    $("#smiley2").stop().fadeTo(500,0.25);
+    $("#smiley2,#smiley3").stop().fadeTo(500,0.25);
   }).mouseout(function(){
-    $("#smiley2").stop().fadeTo(500,1.0);
+    $("#smiley2,#smiley3").stop().fadeTo(500,1.0);
   }).click(function() {
-    $("input[name=feeling_sick]").val("false");
-
+    $("input[name=feeling_sick]").val("notsick");
     $("form#status").submit();
-
-    $("#smiley2").fadeTo(500,0, function() {
+    $("#smiley2,#smiley3").fadeTo(500,0, function() {
       ol_api.close();
     });
   });
 
   $("#smiley2").mouseover(function(){
-    $("#smiley1").stop().fadeTo(500,0.25);
+    $("#smiley1,#smiley3").stop().fadeTo(500,0.25);
   }).mouseout(function(){
-    $("#smiley1").stop().fadeTo(500,1.0);
+    $("#smiley1,#smiley3").stop().fadeTo(500,1.0);
   }).click(function() {
+    $("input[name=feeling_sick]").val("sickatwork");
+    $("#overform1").fadeOut(500,function() {
+      $("#overform2").fadeIn(500);
+    });
+  });
+
+  $("#smiley3").mouseover(function(){
+    $("#smiley1,#smiley2").stop().fadeTo(500,0.25);
+  }).mouseout(function(){
+    $("#smiley1,#smiley2").stop().fadeTo(500,1.0);
+  }).click(function() {
+    $("input[name=feeling_sick]").val("sickathome");
     $("#overform1").fadeOut(500,function() {
       $("#overform2").fadeIn(500);
     });
@@ -69,16 +78,17 @@ $(document).ready(function() {
 		no_result: "No Names"
 	});
 
-  var ol_api = $("#overlay").overlay({
-    api: true,
-    expose: {
-      color: '#BAD0DB',
-      opacity: 0.7,
-      closeSpeed: 1000
-    }
-  });
-
-  ol_api.load();
+  if (window.OVERLAY||false) {
+    var ol_api = $("#overlay").overlay({
+      api: true,
+      expose: {
+        color: '#BAD0DB',
+        opacity: 0.7,
+        closeSpeed: 1000
+      }
+    });
+    ol_api.load();
+  }
 
   setTimeout(function() {
     $(".success").fadeOut();
@@ -87,7 +97,8 @@ $(document).ready(function() {
   $("form#mainform").submit(function(ev) {
     $.post("/meetings.html", {
       "name": $('input[name=to_users]').val(),
-      "time": $('#time').val()
+      "time": $('#time').val(),
+      "location": $('#locationinput').val()
     }, function(data) {
 
       $("#history").prepend(data);

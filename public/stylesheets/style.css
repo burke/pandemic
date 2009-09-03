@@ -23,8 +23,22 @@ ul.facelist, #result_list {
    top: 4px;
 }
 
-#mainform {
+#mainmainform {
    background: url(/images/i_met_with.png) 4px left no-repeat;
+}
+
+#location image {
+   float: left;
+}
+
+#location {
+   height: 40px;
+}
+
+#location select {
+   position: relative;
+   top: -4px;
+   left: 3px;
 }
 
 #wrapper {
@@ -89,3 +103,20 @@ input.time {
    background-color: #c00;
 }
 
+a.cr:link,
+a.cr:visited {
+   text-decoration: none;
+   color: #c00;
+}
+
+a.cr:active,
+a.cr:hover {
+   text-decoration: none;
+   background: #c00;
+   color: white;
+}
+
+#footer {
+   text-align: center;
+   font-size: 9px;
+}

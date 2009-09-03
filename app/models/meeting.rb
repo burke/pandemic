@@ -1,11 +1,12 @@
 class Meeting < ActiveRecord::Base
 
   belongs_to :user
-
+  belongs_to :location
+  
   has_many :meeting_people
   has_many :people, :through => :meeting_people
 
-  validates_presence_of :duration, :people
+  validates_presence_of :duration, :people, :location, :user
 
   def all_people
     return [self.user.person, *self.people]

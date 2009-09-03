@@ -1,0 +1,154 @@
+Ali Banitalebi Dehkordi,dehkordi@ee.umanitoba.ca
+Saeed Iftakhar Reza Latif,iftakhar@ee.umanitoba.ca
+Yuefeng Liang,yuefeng@ee.umanitoba.ca
+Alfred Lip,alip@ee.umanitoba.ca
+Pooya Taheri Gharagozloo,ptaheri@ee.umanitoba.ca
+Anuradha Dissanayaka,anuradha@ee.umanitoba.ca
+Ian Jeffrey,ijeffrey@ee.umanitoba.ca
+Thiromi Renuka Rajapakse,thiromir@ee.umanitoba.ca
+In Kwon Park,pik1432@ee.umanitoba.ca
+Colin Gilmore,cgilmore@ee.umanitoba.ca
+Amanaliah Montazeripouagha,amanmon@ee.umanitoba.ca
+Ehsan Tara,umtara@ee.umanitoba.ca
+Szymon Rzeszowski,szymon@ee.umanitoba.ca
+Zahra Allahgholi pour,zahra_al@ee.umanitoba.ca
+Mehrdad Espah Boroojeni,mespah@ee.umanitoba.ca
+Khalid Butt,kbutt@ee.umanitoba.ca
+Thusitha Wickramasinghe,umwickra@ee.umanitoba.ca
+Christopher Henry,chenry@ee.umanitoba.ca
+Karim Abdel-Hadi,karim@ee.umanitoba.ca
+Mohammad Qudrat-E- Maula,qemaula@ee.umanitoba.ca
+Siavash Zoroofi,szoroofi@ee.umanitoba.ca
+Yi Zhang,yzhang@ee.umanitoba.ca
+Jeffrey-Allen Zimmer,jzimmer@ee.umanitoba.ca
+Mojtaba Safari Hassan Abadi,mojtaba@ee.umanitoba.ca
+Gustavo Naigeboren,gusnaige@ee.umanitoba.ca
+Debbie Zhou,debbiezh@ee.umanitoba.ca
+Shekoofeh Saboktakin,shekoofe@ee.umanitoba.ca
+Nuwan Perera,nuwan@ee.umanitoba.ca
+David Sanders,dsanders@ee.umanitoba.ca
+Mark Roy,mark@ee.umanitoba.ca
+Pommy Patel,ppatel@ee.umanitoba.ca
+Majid Ostad Rahimi,morahimi@ee.umanitoba.ca
+Behzad Qahraman,bqahrama@ee.umanitoba.ca
+Phond Phunchongharn,umphunch@ee.umanitoba.ca
+Daniel Flores,dflores@ee.umanitoba.ca
+Dean Reske,dreske@ee.umanitoba.ca
+Sina Mashayekhi,sina@ee.umanitoba.ca
+Justin Olivier,jolivier@ee.umanitoba.ca
+Azadeh Yadollahi,azadeh@ee.umanitoba.ca
+Jay Kraut,jkraut@ee.umanitoba.ca
+Travis Friesen,tfriesen@ee.umanitoba.ca
+Manju Ramnathan,manju@ee.umanitoba.ca
+Masood Hussain Shah,mhshah@ee.umanitoba.ca
+Sean Romanuik,romanuik@ee.umanitoba.ca
+Lin Zheng,linzheng@ee.umanitoba.ca
+Dario Schor,dschor@ee.umanitoba.ca
+Samaneh Sarraf Shirazi,umsarraf@ee.umanitoba.ca
+Ebrahim Rahimi,rahimi@ee.umanitoba.ca
+Imran Khan,imran@ee.umanitoba.ca
+Azin Shahab,azin@ee.umanitoba.ca
+Arash Abadpour,abadpour@ee.umanitoba.ca
+Alaaeldin Al Sheikh Qasim,aqasem@ee.umanitoba.ca
+Nusraat Masood,nusraat@ee.umanitoba.ca
+Nandaka Jayasekera,nandaka@ee.umanitoba.ca
+Al-Wasi Haque,ahaque@ee.umanitoba.ca
+Mohamed M. Zakaria Mostafa,mmohamed@ee.umanitoba.ca
+Gregory Chongva,umchongg@ee.umanitoba.ca
+Lalin Kothalawala,lalin@ee.umanitoba.ca
+Shabnam Shahfar,shabnam@ee.umanitoba.ca
+Ali Azarbarzin,abarzin@ee.umanitoba.ca
+Haitao Zhao,hzhao@ee.umanitoba.ca
+Amir Hossein Meghdadi,meghdadi@ee.umanitoba.ca
+Travis Piche,tpiche@ee.umanitoba.ca
+Aram Faghfouri,aram@ee.umanitoba.ca
+Tim Cabel,timcabel@ee.umanitoba.ca
+Iman Yahyaie,yahyaie@ee.umanitoba.ca
+Maryam Heshmatzadeh,maryamhs@ee.umanitoba.ca
+MD. Mostafizur Rahman,mmrahman@ee.umanitoba.ca
+Dan Lockery,dlockery@ee.umanitoba.ca
+Miodrag Kandic,kandic@ee.umanitoba.ca
+Leila Sadat Safavian,safavian@ee.umanitoba.ca
+Homa Fashandi,fashandi@ee.umanitoba.ca
+Aisha Tahir,atahir@ee.umanitoba.ca
+Ehsan Azordegan,eazord@ee.umanitoba.ca
+Shan Jiang,sjiang@ee.umanitoba.ca
+Zheng Zhou,zzhou@ee.umanitoba.ca
+Khajonpong Akkarajitsakol,kakkaraj@ee.umanitoba.ca
+Simin Bokharaiee Najafee,simin@ee.umanitoba.ca
+Gustavo Marjovsky,gmarjovs@ee.umanitoba.ca
+Daniel Wiebe,dawiebe@ee.umanitoba.ca
+Patabandi Maddumage Chathura Jeevantha,chathura@ee.umanitoba.ca
+Ali Ashtari,aashtari@ee.umanitoba.ca
+Chandana Karawita,chandana@ee.umanitoba.ca
+Elham Salimi,elham@ee.umanitoba.ca
+Farid Mosallat,mosallat@ee.umanitoba.ca
+Farhad Yahyaie,fyahyaie@ee.umanitoba.ca
+Taiming Zhang,taiming@ee.umanitoba.ca
+Surachai Chieochan,pan@ee.umanitoba.ca
+Dominic Schaub,dominic@ee.umanitoba.ca
+Sangho Lee,sangho@ee.umanitoba.ca
+Jigar Patel,jpatel@ee.umanitoba.ca
+Lily Woo,lily@ee.umanitoba.ca
+Adam Machynia,machynia@ee.umanitoba.ca
+Hiranya Suriyaarachchi,hiranya@ee.umanitoba.ca
+Bharat Shrestha,bharat@ee.umanitoba.ca
+Nick Kamenev,nkamenev@ee.umanitoba.ca
+Gao Feng,gfeng@ee.umanitoba.ca
+Md. Obaej Tareq,obaej@ee.umanitoba.ca
+Jayanta Kumar Debnath,jdebnath@ee.umanitoba.ca
+Behzad Kasiri Mashhad,behzad@ee.umanitoba.ca
+Maziar Heidari,mheidari@ee.umanitoba.ca
+Everet Anema Anema,eanema@ee.umanitoba.ca
+Anuradha Kariyawasam Kapuge Kariyawasam Mudalige,kapuge@ee.umanitoba.ca
+Saiful Huq,umhuqs@ee.umanitoba.ca
+Ali Momen Mehrabani,alimehr@ee.umanitoba.ca
+Krishna Kota,kkota@ee.umanitoba.ca
+Alireza Motieifar,alirezam@ee.umanitoba.ca
+Dananjaya Nuwan Balasuriya,nuwanb@ee.umanitoba.ca
+Niraj Kshatriya,nkshatri@ee.umanitoba.ca
+Iqbal Shahid,iqbal@ee.umanitoba.ca
+Jialin Li,jialinli@ee.umanitoba.ca
+Pei Wang,xuanpei@ee.umanitoba.ca
+Obada Nanayakkara,omkasun@ee.umanitoba.ca
+Rekha Chaudmari,rekha@ee.umanitoba.ca
+Gabriel Faucher,gfaucher@ee.umanitoba.ca
+Marc Soiferman,msoiferm@ee.umanitoba.ca
+Haitham Abu Ghazaleh,haitham@ee.umanitoba.ca
+Xi Lin,xlin@ee.umanitoba.ca
+Jeewantha De Silva,jeewanth@ee.umanitoba.ca
+Jonathan Reimer,jreimer@ee.umanitoba.ca
+Dustin Isleifson,disl@ee.umanitoba.ca
+Jose Juan Mijares-Chan,jmijares@ee.umanitoba.ca
+Francisco Gomez,fgomez@ee.umanitoba.ca
+Udana Gnanarathna,udana@ee.umanitoba.ca
+Graham Ferrier,gferrier@ee.umanitoba.ca
+Nguyen An,annguyen@ee.umanitoba.ca
+Lidula Widanagama Arachchige,lidula@ee.umanitoba.ca
+Jonatan Aronsson,aronsson@ee.umanitoba.ca
+Titus Adelani,oadelani@ee.umanitoba.ca
+Darcy Cook,dcook@ee.umanitoba.ca
+Sharmistha Bhadra,sbhadra@ee.umanitoba.ca
+Abas Sabouni,sabouni@ee.umanitoba.ca
+Arezoo Emadi,arezoo@ee.umanitoba.ca
+Shahnoor Habib,shahnoor@ee.umanitoba.ca
+Mohammed Al-Qedra,mqedra@ee.umanitoba.ca
+Mohammad Alsehaili,msehaili@ee.umanitoba.ca
+Ji Xu,umxu37@ee.umanitoba.ca
+Ali-Akbar Samadani,samadani@ee.umanitoba.ca
+Don Gayan Prabath Wijeweera,gayan@ee.umanitoba.ca
+Cameron Kaye,cjkaye@ee.umanitoba.ca
+Faezeh Safari,safari@ee.umanitoba.ca
+Il Do Yoo,yooildo@ee.umanitoba.ca
+Martin Cwikla,mcwikla@ee.umanitoba.ca
+Marek Laskowski,mlaskows@ee.umanitoba.ca
+Puyan Mojabi,pmojabi@ee.umanitoba.ca
+Yao Fu,yao_fu@ee.umanitoba.ca
+Abdelhalim Mohamed,halim@ee.umanitoba.ca
+Jiaqing Lv,jiaqing@ee.umanitoba.ca
+Amer Zakaria,azakaria@ee.umanitoba.ca
+Farshad Kaymaram,farshad@ee.umanitoba.ca
+Alejandro Tovar,atovar@ee.umanitoba.ca
+Rohitha Jayasinghe,jayas@ee.umanitoba.ca
+Barbara Pawlak,bpawlak@ee.umanitoba.ca
+Mahyar Modaresi,mahyarm@ee.umanitoba.ca

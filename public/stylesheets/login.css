@@ -1,0 +1,40 @@
+.login_box, .signup_box {
+   text-align: left;
+   width: 500px;
+   margin: 75px auto;
+}
+
+.login_box label,
+.signup_box label {
+   width: 130px;
+   display: block;
+   float: left;
+   font-size: 18px;
+   line-height: 36px;
+}
+
+.text_field input,
+.password_field input {
+   width: 300px;
+   float: left;
+   font-size: 18px;
+   border: 1px solid #666;
+   padding: 3px;
+}
+
+.checkbox label {
+   font-size: 10px;
+   line-height: 18px;
+}
+
+.text_field, .submit_field, .password_field {
+   clear: left;
+}
+
+.error_message {
+   clear: left;
+   display: block;
+   margin-left: 140px;
+   color: #c00;
+   margin-bottom: 10px;
+}

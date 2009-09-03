@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :locations
+
   map.resources :statuses
 
   map.resources :meeting_people

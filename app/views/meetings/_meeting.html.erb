@@ -9,7 +9,7 @@ map{|n|"<span class=\"name\">#{n}</span>"}.
 join(', ')
 
 %> at <span class="location"><%=
-"Neverland Ranch"
+meeting.location.name rescue "???"
 %></span> for <span class="time"><%=
 h meeting.time_str 
 %></span>. <span class="x">X</span>

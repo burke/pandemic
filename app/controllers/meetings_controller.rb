@@ -46,6 +46,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(params[:meeting])
 
     @meeting.user = @current_user
+    @meeting.location = Location.find(params[:location])
     
     if u = params[:name]
       u.sub(/,$/,'').split(',').each{|a| @meeting.people << Person.find(a)}

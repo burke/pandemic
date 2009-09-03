@@ -1,12 +1,13 @@
-.text_field
-  = form.label :login
-  = form.text_field :login, :class => 'text'
-.text_field
-  = form.label :email
-  = form.text_field :email, :class => 'text'
-.password_field
-  = form.label :password 
-  = form.password_field :password, :class => 'text'
-.password_field
-  = form.label :password_confirmation 
-  = form.password_field :password_confirmation, :class => 'text'
+.signup_box
+  .text_field
+    = form.label :login
+    = form.text_field :login, :class => 'text'
+  .text_field
+    = form.label :email
+    = form.text_field :email, :class => 'text'
+  .password_field
+    = form.label :password 
+    = form.password_field :password, :class => 'text'
+  .password_field
+    = form.label :password_confirmation, "(Again)"
+    = form.password_field :password_confirmation, :class => 'text'
