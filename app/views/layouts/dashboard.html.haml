@@ -29,22 +29,11 @@
           %image{:id => 'smiley3', :src => "/images/sick.png"}/
         #overform2{:style=>'display:none'}
           %form{:action => '/statuses.json', :method => :post, :id => 'status'}
-            %label{:for => "symptoms1"} Fever
-            %input{:type => "checkbox", :id => "symptoms1", :name => "symptoms[fever]"}
-            %label{:for => "symptoms2"} Headache
-            %input{:type => "checkbox", :id => "symptoms2", :name => "symptoms[headache]", "value" => "headache"}
-            %label{:for => "symptoms3"} Abnormal Tiredness
-            %input{:type => "checkbox", :id => "symptoms3", :name => "symptoms3", "value" => "tiredness"}
-            %label{:for => "symptoms4"} Cough
-            %input{:type => "checkbox", :id => "symptoms4", :name => "symptoms4", "value" => "cough"}
-            %label{:for => "symptoms5"} Sore Throat
-            %input{:type => "checkbox", :id => "symptoms5", :name => "symptoms5", "value" => "sorethroat"}
-            %label{:for => "symptoms6"} Runny or Stuffy Nose
-            %input{:type => "checkbox", :id => "symptoms6", :name => "symptoms6", "value" => "runnynose"}
-            %label{:for => "symptoms7"} Body Aches
-            %input{:type => "checkbox", :id => "symptoms7", :name => "symptoms7", "value" => "aches"}
-            %label{:for => "symptoms8"} Diarrhea, nausea, and/or vomitting
-            %input{:type => "checkbox", :id => "symptoms8", :name => "symptoms8", "value" => "digestive"}
+            - ["Fever", "Headache", "Tiredness", "Cough", "Sore Throat", "Runny or Stuffy Nose", "Body Aches", "Diarrhea, nausea, and/or vomitting"].each_with_index do |x, i|
+              - xp = x.parameterize
+              %input{:class => 'symptom', :type => "checkbox", :id => "symptoms-"+xp, :name => "symptoms["+xp+"]"}
+              %label{:for => "symptoms-"+xp}= x
+
             %input{:type => "hidden", :value => "true", :name => 'feeling_sick'}
             %input{:type => "submit", :value => "Submit"} 
 

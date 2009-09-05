@@ -33,9 +33,7 @@ $(document).ready(function() {
   }).click(function() {
     $("input[name=feeling_sick]").val("notsick");
     $("form#status").submit();
-    $("#smiley2,#smiley3").fadeTo(500,0, function() {
-      ol_api.close();
-    });
+    $("#smiley2,#smiley3").fadeTo(500,0);
   });
 
   $("#smiley2").mouseover(function(){
@@ -117,10 +115,20 @@ $(document).ready(function() {
   });
 
   $("form#status").submit(function(ev) {
+    var symplist = "";
+    $("input.symptom").each(function(i) {
+      if (this.checked) {
+        symplist += ($(this).attr('id')+",");
+      }
+    });
+
     $.post("/statuses.json", {
       "feeling_sick": $('input[name=feeling_sick]').val(),
-      "symptoms": $("input[name=symptoms]").val()
-    },function(){ol_api.close();});
+      "symptoms": symplist
+    },function(){
+      $("#overlay").html("<h3>Your input has been recorded. Thanks!</h3>");
+      setTimeout(function(){ol_api.close();},3000);
+    });
 
     ev.preventDefault();
   });

@@ -120,3 +120,12 @@ a.cr:hover {
    text-align: center;
    font-size: 9px;
 }
+
+#overlay label {
+   float: left;
+}
+
+#overlay input {
+   clear: left;
+   float: left;
+}

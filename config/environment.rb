@@ -5,6 +5,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
+  config.gem 'monkeysupport'
+  
   config.gem 'json'
   config.gem 'mocha'
   config.gem 'thoughtbot-shoulda',       :lib => 'shoulda',      :source => "http://gems.github.com"

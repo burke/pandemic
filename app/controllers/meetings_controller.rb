@@ -2,28 +2,6 @@ class MeetingsController < ApplicationController
 
   before_filter :require_user
 
-  # GET /meetings
-  # GET /meetings.xml
-  def index
-    @meetings = Meeting.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @meetings }
-    end
-  end
-
-  # GET /meetings/1
-  # GET /meetings/1.xml
-  def show
-    @meeting = Meeting.find(params[:id])
-
-    respond_to do |format|
-      format.html { render :partial => @meeting }
-      format.xml  { render :xml => @meeting }
-    end
-  end
-
   # GET /meetings/new
   # GET /meetings/new.xml
   def new
@@ -33,11 +11,6 @@ class MeetingsController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @meeting }
     end
-  end
-
-  # GET /meetings/1/edit
-  def edit
-    @meeting = Meeting.find(params[:id])
   end
 
   # POST /meetings
@@ -74,25 +47,6 @@ class MeetingsController < ApplicationController
       end
     end
   end
-
-  # PUT /meetings/1
-  # PUT /meetings/1.xml
-=begin
-  def update
-    @meeting = Meeting.find(params[:id])
-
-    respond_to do |format|
-      if @meeting.update_attributes(params[:meeting])
-        flash[:notice] = 'Meeting was successfully updated.'
-        format.html { redirect_to(@meeting) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @meeting.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-=end
   
   # DELETE /meetings/1
   # DELETE /meetings/1.xml

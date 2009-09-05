@@ -1,7 +1,7 @@
 .login_box
   - form_for :user_session, :url => user_session_path do |form| 
     .text_field
-      = form.label :login, 'Login/Email'
+      = form.label :login, 'Login or Email'
       = form.text_field :login, :class => "text"
     .text_field
       = form.label :password
