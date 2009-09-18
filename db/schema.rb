@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090903045028) do
+ActiveRecord::Schema.define(:version => 20090918203451) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20090903045028) do
     t.string   "last_login_ip"
     t.string   "name"
     t.integer  "person_id"
+    t.datetime "vaccination_date"
   end
 
 end
