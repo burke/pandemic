@@ -4,4 +4,4 @@
   -if current_user.is_a?(Administrator)
     %li= link_to 'Admin', admin_url
   %li= link_to current_user.login, dashboard_personal_url
-  %li= link_to 'Logout', logout_url
+  %li= link_to 'Logout / Done', logout_url

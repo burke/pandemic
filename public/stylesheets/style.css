@@ -121,11 +121,15 @@ a.cr:hover {
    font-size: 9px;
 }
 
+#overlay .symptom {
+   clear: left;
+}
+
 #overlay label {
    float: left;
 }
 
 #overlay input {
-   clear: left;
    float: left;
 }
+

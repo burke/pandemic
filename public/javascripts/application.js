@@ -1,24 +1,23 @@
+// FUTURE REFACTORING CANDIDATE
+
+// HERE BE DRAGONNES, ETC.
+
 $(document).ready(function() {
 
   $(document).bind("meeting.insert", function(e) {
     $(".result.unevented .x")
       .click(function(ev){
         var that = this;
-        $.ajax({
-          url: "/meetings/"+$(that).closest(".result").attr('id').substring(8),
-          type: 'POST',
-          dataType: 'script',
-          data: {
-            '_method': 'delete'
-//            'authenticity_token': AUTH_TOKEN
-          },
-          success: function(msg) {
+        $.post(
+          "/meetings/"+$(that).closest(".result").attr('id').substring(8),
+          {'_method': 'delete'},
+          function() {
             $(that).closest(".result").hide('slow',function(){
               $(this).remove();
             });
           }
-        });
-        return false;
+        );
+        ev.preventDefault();
       });
     $(".result.unevented").removeClass("unevented");
   });

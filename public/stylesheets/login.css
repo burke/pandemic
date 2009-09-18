@@ -38,3 +38,9 @@
    color: #c00;
    margin-bottom: 10px;
 }
+
+.checkbox input {
+   border: none;
+   width: auto;
+}
+

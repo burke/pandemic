@@ -12,14 +12,16 @@
     = javascript_include_tag 'jquery-1.3.2.min.js', 'jquery.autocomplete.js', 'jquery.facelist.js', 'jquery.tools.min.js', 'application.js', 'jquery-ui-1.7.2.custom.min.js'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    /[if lte IE 6]
+      = stylesheet_link_tag 'ie6.css', :media => 'screen, projection'
   %body
     #header= render :partial => '/shared/header'
     #body
       .container
-        - flash.each do |key, value|
-          %div{:class => key}= h(value)
         = yield  
         #footer= render :partial => '/shared/footer'
+        - flash.each do |key, value|
+          %div{:class => key}= h(value)
       .overlay#overlay
         %image{:src => "/images/how_are_you_feeling.png"}/
         %br/
@@ -31,9 +33,11 @@
           %form{:action => '/statuses.json', :method => :post, :id => 'status'}
             - ["Fever", "Headache", "Tiredness", "Cough", "Sore Throat", "Runny or Stuffy Nose", "Body Aches", "Diarrhea, nausea, and/or vomitting"].each_with_index do |x, i|
               - xp = x.parameterize
-              %input{:class => 'symptom', :type => "checkbox", :id => "symptoms-"+xp, :name => "symptoms["+xp+"]"}
-              %label{:for => "symptoms-"+xp}= x
+              .symptom
+                %input{:class => 'symptom', :type => "checkbox", :id => "symptoms-"+xp, :name => "symptoms["+xp+"]"}
+                %label{:for => "symptoms-"+xp}= x
 
             %input{:type => "hidden", :value => "true", :name => 'feeling_sick'}
+            %br/
             %input{:type => "submit", :value => "Submit"} 
 

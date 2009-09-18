@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'activesupport'
 
-NUM_PEOPLE = 300
-UNIT_SIZE = 12
+NUM_PEOPLE = 250
+UNIT_SIZE = 8
 
 class Person
 
@@ -37,6 +37,7 @@ class Person
   end
   
   def docontact(person, duration)
+    return if person.pid == self.pid rescue nil
     return if @contact.map{|e|e[0]}.include?(person)
     @contact << [person, duration]
   end
@@ -71,7 +72,7 @@ module Graph
       @@rall.each do |node|
         x = Edge.rall.select{|e|e.src == node.name || e.dest == node.name}
         fn = (x.size)**2
-        fd = ((x.map(&:dur).inject(&:+)||0) / 1800.0)
+        fd = ((x.map(&:dur).inject(&:+)||0) / 3600.0)
         node.w = fn*fd
         @@w_max ||= node.w
         @@w_max = node.w if node.w > @@w_max
@@ -82,14 +83,14 @@ module Graph
       unless defined?(@@w_max)
         Node.color_all
       end
-      ratio = w / @@w_max.to_f
-      dec = 256-(ratio * 255)
+      ratio = 1- (w / @@w_max.to_f)
+      dec = 255-(ratio * 255)
       hex = dec.to_i.to_s(16)
-      s=hex*3
-      if s.size==3
+      s=hex
+      if s.size==1
         s *= 2
       end
-      return "##{s}"
+      return "##{s}0000"
     end
   end
 
@@ -107,6 +108,10 @@ module Graph
       "{edge [color=\"#{color}\"] h#{@src} -- h#{@dest} }"
     end
 
+    def weight
+      ratio = @dur / (3600*8.to_f)
+    end
+    
     def color
       ratio = @dur / (3600*8.to_f)
       dec = 256-(ratio * 255)
@@ -146,7 +151,7 @@ class Simulation
     $people.each do |person|
       Graph::Node.new(person.pid)
       x = {}
-      person.contact.each{|c|x[c[0].pid] = c[1]}
+      person.contact.each{|c| (x[c[0].pid] = c[1]) rescue nil}
       x.each do |p, d|
         Graph::Edge.new(person.pid, p, d)
       end
