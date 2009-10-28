@@ -74,9 +74,8 @@ $(document).ready(function() {
 		intro_text: "Type Name",
 		no_result: "No Names"
 	});
-
-//  if (window.OVERLAY||false) {
-  if(false) {
+/*
+  if (window.OVERLAY||false) {
     var ol_api = $("#overlay").overlay({
       api: true,
       expose: {
@@ -87,7 +86,7 @@ $(document).ready(function() {
     });
     ol_api.load();
   }
-
+*/
   setTimeout(function() {
     $(".success").fadeOut();
   }, 8000);
