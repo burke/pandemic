@@ -75,7 +75,8 @@ $(document).ready(function() {
 		no_result: "No Names"
 	});
 
-  if (window.OVERLAY||false) {
+//  if (window.OVERLAY||false) {
+  if(false) {
     var ol_api = $("#overlay").overlay({
       api: true,
       expose: {
